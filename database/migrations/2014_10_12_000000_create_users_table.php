@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('admin')->default(false);
+            $table->timestamp('approved_at')->nullable();
         });
     }
 
@@ -34,3 +36,4 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
