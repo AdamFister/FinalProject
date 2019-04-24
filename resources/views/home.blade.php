@@ -15,6 +15,15 @@
                     @endif
 
                     You are logged in!
+
+                    <br>
+                    
+                    @if (Auth::user()->admin == 1)
+                    <div>I'm an admin!</div>
+                    @else
+                    <div>I'm not!</div>
+                    @endif
+
                 </div>
             </div>
         </div>
