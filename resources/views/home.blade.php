@@ -20,15 +20,16 @@
 
                     @if (Auth::user()->admin == 1)
                     <div>I'm an admin!</div>
-
-
+                    <br>
+                    <a class="btn btn-info" href="/users">Users Page</a>
+                    <a class="btn btn-info" href="/profiles">Profiles Page</a>
 
 
 
                     @else
                     <div>I'm a user!</div>
                     <br>
-                    <a class="btn btn-info" href="/mypage">My Page</a>
+                    
 
                     @endif
 

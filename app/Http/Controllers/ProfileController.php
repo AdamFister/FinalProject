@@ -14,7 +14,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+
+        $profiles = Profile::all();
+
+        return view('profiles.index', compact('profiles'));
+
     }
 
     /**
@@ -24,7 +28,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('profiles.create');
     }
 
     /**
@@ -35,7 +39,14 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $profile = new Profile();
+
+        $profile->name = request('name');
+        $profile->instruments = request('instruments');
+        $profile->influences = request('influences');
+        $profile->save();
+        
+        return redirect('/profiles');
     }
 
     /**
@@ -55,9 +66,10 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit($id)
     {
-        //
+        $profile = Profile::findOrFail($id);
+        return view('profiles.edit', ['profile' => $profile]);
     }
 
     /**
@@ -67,9 +79,16 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update($id)
     {
-        //
+        $profile = Profile::findOrFail($id);
+
+        $profile->name = request('name');
+        $profile->instruments = request('instruments');
+        $profile->influences = request('influences');
+        $profile->save();
+
+        return redirect('/profiles');
     }
 
     /**
@@ -78,8 +97,10 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy($id)
     {
-        //
+        Profile::findOrFail($id)->delete();
+
+        return redirect('/profiles');
     }
 }
