@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Notifications\NewUser;
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -75,6 +76,11 @@ class RegisterController extends Controller
             $admin->notify(new NewUser($user));
         }
     
+        $profile = Profile::create([
+            'nickname' => $user['name'],
+            'user_id' => $user['id']
+        ]);
+
         return $user;
     }
 }
