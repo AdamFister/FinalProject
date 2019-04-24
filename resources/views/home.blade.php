@@ -17,12 +17,22 @@
                     You are logged in!
 
                     <br>
-                    
+
                     @if (Auth::user()->admin == 1)
                     <div>I'm an admin!</div>
+
+
+
+
+
                     @else
-                    <div>I'm not!</div>
+                    <div>I'm a user!</div>
+                    <br>
+                    <a class="btn btn-info" href="/mypage">My Page</a>
+
                     @endif
+
+
 
                 </div>
             </div>
