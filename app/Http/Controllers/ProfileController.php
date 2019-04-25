@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use Illuminate\Http\Request;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -83,12 +84,28 @@ class ProfileController extends Controller
     {
         $profile = Profile::findOrFail($id);
 
-        $profile->name = request('name');
-        $profile->instruments = request('instruments');
+        $profile->nickname = request('nickname');
+        $profile->city = request('city');
+        $profile->age = request('age');
+        $profile->photo = request('photo');
+        $profile->desc = request('desc');
         $profile->influences = request('influences');
+        $profile->music_type = request('music_type');
+        $profile->read_write_music = request('read_write_music');
+        $profile->improvise = request('improvise');
+        $profile->ear = request('ear');
         $profile->save();
 
-        return redirect('/profiles');
+        $user = Auth::user();
+
+        if ($user->admin)
+        {
+            return redirect('/profiles');
+        }
+        else {
+            return redirect('/home');
+        }
+        
     }
 
     /**
