@@ -47,6 +47,7 @@
                                     <input readonly class="form-control-plaintext" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
                                 </div>
                             </div>
+                            
                             <br>
                             <div class="field">
                                 <label class="label" for="city">City</label>
@@ -68,7 +69,9 @@
                                 <label class="label" for="photo">Photo</label>
 
                                 <div class="control">
-                                    <textarea readonly class="form-control-plaintext" name="photo" class="textarea">{{ $profile->photo }}</textarea>
+
+                                <img class="profileImg" src="/files/{{ $profile->photo }}" />
+
                                 </div>
                             </div>
                             <br>

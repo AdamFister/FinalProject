@@ -80,14 +80,19 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $profile = Profile::findOrFail($id);
 
         $profile->nickname = request('nickname');
         $profile->city = request('city');
         $profile->age = request('age');
-        $profile->photo = request('photo');
+
+        if($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('images');
+            $profile->photo = $path;
+        }
+        
         $profile->desc = request('desc');
         $profile->influences = request('influences');
         $profile->music_type = request('music_type');
@@ -118,6 +123,14 @@ class ProfileController extends Controller
     {
         Profile::findOrFail($id)->delete();
 
-        return redirect('/profiles');
+        $user = Auth::user();
+
+        if ($user->admin)
+        {
+            return redirect('/profiles');
+        }
+        else {
+            return redirect('/welcome');
+        }
     }
 }

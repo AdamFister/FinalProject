@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h1 class='title'>Edit profile</h1>
 
-                    <form method="POST" action="/profiles/{{ $profile->id }}">
+                    <form method="POST" action="/profiles/{{ $profile->id }}" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
                         <div class="field">
@@ -19,6 +19,7 @@
                                 <input class="form-control" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
                             </div>
                         </div>
+
                         <br>
                         <div class="field">
                             <label class="label" for="city">City</label>
@@ -37,14 +38,22 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="photo">Photo</label>
 
                             <div class="control">
-                                <textarea class="form-control" name="photo" class="textarea">{{ $profile->photo }}</textarea>
+
+                                <img class="profileImg" src="/files/{{ $profile->photo }}" />
+
+                                <label>Profile Image</label>
+                                <div class="file-field">
+                                    <div class="btn btn-secondary btn-sm float-left">
+                                        <input type="file" name="photo">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <br>
                         <div class="field">
+                            <br>
                             <label class="label" for="desc">Description</label>
 
                             <div class="control">
@@ -70,17 +79,45 @@
                         <br>
                         <div class="field">
                             <label class="label" for="read_write_music">Read/Write Music</label>
-
                             <div class="control">
-                                <input class="form-control" type="text" class="input" name="read_write_music" placeholder="1 to 10" value="{{ $profile->read_write_music }}">
+
+                            <select class="form-control" type="text" name="read_write_music" class="input">
+                            <?php
+                            for ($i = 1; $i <= 10; $i++) {
+                                if ($i == $profile->read_write_music) {
+                                    ?><option selected value="{{ $profile->read_write_music }}">{{ $profile->read_write_music }}</option>
+                                    <?php
+                                    } else { 
+                                    ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <?php 
+                                    }
+                            } ?>
+                            
+                            </select>
                             </div>
+                            
                         </div>
                         <br>
                         <div class="field">
                             <label class="label" for="improvise">Improvise</label>
 
                             <div class="control">
-                                <input class="form-control" type="text" class="input" name="improvise" placeholder="1 to 10" value="{{ $profile->improvise }}">
+                            <select class="form-control" type="text" name="improvise" class="input">
+                            <?php
+                            for ($i = 1; $i <= 10; $i++) {
+                                if ($i == $profile->improvise) {
+                                    ?><option selected value="{{ $profile->improvise }}">{{ $profile->improvise }}</option>
+                                    <?php
+                                    } else { 
+                                    ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <?php 
+                                    }
+                            } ?>
+
+
+                            </select>
                             </div>
                         </div>
                         <br>
@@ -88,7 +125,21 @@
                             <label class="label" for="ear">Ear</label>
 
                             <div class="control">
-                                <input class="form-control" type="text" class="input" name="ear" placeholder="1 to 10" value="{{ $profile->ear }}">
+                            <select class="form-control" type="text" name="ear" class="input">
+                            <?php
+                            for ($i = 1; $i <= 10; $i++) {
+                                if ($i == $profile->ear) {
+                                    ?><option selected value="{{ $profile->ear }}">{{ $profile->ear }}</option>
+                                    <?php
+                                    } else { 
+                                    ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <?php 
+                                    }
+                            } ?>
+
+
+                            </select>
                             </div>
                         </div>
                         <br>
