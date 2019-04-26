@@ -156,7 +156,7 @@
                         @csrf
                         <div class="field control">
 
-                            <button type="submit" class="btn btn-danger">Delete profile</button>
+                            <!-- <button type="submit" class="btn btn-danger">Delete profile</button> -->
 
                         </div>
                     </form>

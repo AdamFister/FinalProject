@@ -24,9 +24,9 @@
     <div class="col">
         <h5>Age</h5>
     </div>
-    <div class="col">
+    <!-- <div class="col">
         <h5>Photo</h5>
-    </div>
+    </div> -->
     <div class="col">
         <h5>Description</h5>
     </div>
@@ -55,7 +55,7 @@
     <div class="col">{{ $profile->nickname }}</div>
     <div class="col">{{ $profile->city }}</div>
     <div class="col">{{ $profile->age }}</div>
-    <div class="col">{{ $profile->photo }}</div>
+    <!-- <div class="col">{{ $profile->photo }}</div> -->
     <div class="col">{{ $profile->desc }}</div>
     <div class="col">{{ $profile->influences }}</div>
     <div class="col">{{ $profile->music_type }}</div>

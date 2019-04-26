@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    You are logged in!
+                    <!-- You are logged in! -->
 
                     <br>
 
@@ -30,15 +30,18 @@
                     
                     <?php
                     $profile = Auth::user()->profile;
+                    $talents = \App\Talent::all();
+                    $instruments = \App\Instrument::all();
                     ?>
                     <!-- <p>{{ $profile->id }}</p> -->
-                    <div>Welcome, {{ $profile->nickname }}!</div>
-                    <br>
+                    <!-- <div>Welcome, {{ $profile->nickname }}!</div> -->
+                    
                     <div class="container">
                         <!-- <h1 class='title'>Edit profile</h1> -->
                         
                         <form method="POST" action="/profiles/{{ $profile->id }}">
-                           
+                           <div class="row">
+                               <div class="col">
                             {{ csrf_field() }}
                             <div class="field">
                                 <label class="label" for="nickname">Nickname</label>
@@ -47,7 +50,7 @@
                                     <input readonly class="form-control-plaintext" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
                                 </div>
                             </div>
-                            
+
                             <br>
                             <div class="field">
                                 <label class="label" for="city">City</label>
@@ -57,37 +60,21 @@
                                 </div>
                             </div>
                             <br>
+
+                            INSTRUMENTS: <?php foreach ($talents as $row) {
+                                                if ($row->profile_id==3) {
+                                                echo $row;
+                                                // echo $instruments->type;
+                                                }
+                                                // if (3 == $row->profile_id) {
+                                                //     echo $row->instrument;
+                                                // }
+                                            } ?>
                             <div class="field">
                                 <label class="label" for="age">Age</label>
 
                                 <div class="control">
                                     <input readonly class="form-control-plaintext" type="text" class="input" name="age" placeholder="age" value="{{ $profile->age }}">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="field">
-                                <label class="label" for="photo">Photo</label>
-
-                                <div class="control">
-
-                                <img class="profileImg" src="/files/{{ $profile->photo }}" />
-
-                                </div>
-                            </div>
-                            <br>
-                            <div class="field">
-                                <label class="label" for="desc">Description</label>
-
-                                <div class="control">
-                                    <textarea readonly class="form-control-plaintext" name="desc" class="textarea">{{ $profile->desc }}</textarea>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="field">
-                                <label class="label" for="influences">Influences</label>
-
-                                <div class="control">
-                                    <textarea readonly class="form-control-plaintext" name="influences" class="textarea">{{ $profile->influences }}</textarea>
                                 </div>
                             </div>
                             <br>
@@ -121,6 +108,37 @@
                                 <div class="control">
                                     <input readonly class="form-control-plaintext" type="text" class="input" name="ear" placeholder="1 to 10" value="{{ $profile->ear }}">
                                 </div>
+                            </div>
+                            
+                            </div>
+                            <div class="col">
+                            <div class="field">
+                                
+
+                                <div class="control">
+                                <br>
+                                <img class="profileImg" src="/files/{{ $profile->photo }}" />
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="field">
+                                <label class="label" for="desc">Description</label>
+
+                                <div class="control">
+                                    <textarea readonly class="form-control-plaintext" name="desc" class="textarea">{{ $profile->desc }}</textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="field">
+                                <label class="label" for="influences">Influences</label>
+
+                                <div class="control">
+                                    <textarea readonly class="form-control-plaintext" name="influences" class="textarea">{{ $profile->influences }}</textarea>
+                                </div>
+                            </div>
+                            <br>
+                            </div>
                             </div>
                             <br>
                             </form>

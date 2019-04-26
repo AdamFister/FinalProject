@@ -4,16 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Instrument extends Model
 {
     protected $fillable = [
-        'nickname', 'user_id'
+        'type'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
 
     public function talent()
     {

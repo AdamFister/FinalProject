@@ -37,3 +37,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::resource('profiles', 'ProfileController');
+Route::resource('instruments', 'InstrumentController');
+Route::resource('talents', 'TalentController');

@@ -20,6 +20,7 @@ class ProfileController extends Controller
 
         return view('profiles.index', compact('profiles'));
 
+
     }
 
     /**
@@ -40,14 +41,14 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $profile = new Profile();
+        // $profile = new Profile();
 
-        $profile->name = request('name');
-        $profile->instruments = request('instruments');
-        $profile->influences = request('influences');
-        $profile->save();
+        // $profile->name = request('name');
+        // $profile->instruments = request('instruments');
+        // $profile->influences = request('influences');
+        // $profile->save();
         
-        return redirect('/profiles');
+        // return redirect('/profiles');
     }
 
     /**
@@ -130,7 +131,7 @@ class ProfileController extends Controller
             return redirect('/profiles');
         }
         else {
-            return redirect('/welcome');
+            return redirect('/login');
         }
     }
 }
