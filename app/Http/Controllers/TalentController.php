@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Talent;
+use App\Profile;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TalentController extends Controller
 {
@@ -12,11 +15,21 @@ class TalentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $talents = Talent::all();
 
-        return view('talents.index', compact('talents'));
+        // $profile = Profile::findOrFail($id);
+        //$talents = Talent::where('profile_id', "IS", 3);
+        try {
+            $talents = DB::select('select * from talents where profile_id = ?', [$id]);
+            return json_encode($talents);
+        } catch(EXCEPTION $e){
+        
+         throw $e;
+        }
+        //$talents = Talent::all();
+        //echo $talents;
+        
     }
 
     /**
@@ -24,9 +37,18 @@ class TalentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id, $instid)
     {
-        //
+        $talent = new Talent();
+
+        $talent->profile_id = $id;
+        $talent->instrument_id = $instid;
+        $talent->save();
+
+        $talents = Talent::all();
+       // return redirect('/profiles');
+
+        return json_encode($talents);
     }
 
     /**

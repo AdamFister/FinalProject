@@ -122,7 +122,9 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        Profile::findOrFail($id)->delete();
+        $profile = Profile::findOrFail($id);
+        $profile->deleted = 1;
+        $profile->save();
 
         $user = Auth::user();
 

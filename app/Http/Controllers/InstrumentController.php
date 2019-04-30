@@ -14,7 +14,7 @@ class InstrumentController extends Controller
      */
     public function index()
     {
-        //
+        return Instrument::all();
     }
 
     /**

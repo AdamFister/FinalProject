@@ -15,8 +15,8 @@ class CreateTalentsTable extends Migration
     {
         Schema::create('talents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('profile_id')->unsigned();
-            $table->integer('instrument_id')->unsigned();
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('instrument_id');
             $table->timestamps();
         });
     }

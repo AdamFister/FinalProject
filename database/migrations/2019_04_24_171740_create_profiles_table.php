@@ -27,6 +27,7 @@ class CreateProfilesTable extends Migration
             $table->bigInteger('read_write_music')->nullable();
             $table->bigInteger('improvise')->nullable();
             $table->bigInteger('ear')->nullable();
+            $table->boolean('deleted')->default(0);
         });
 
     }

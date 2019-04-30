@@ -8,6 +8,8 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class='title'>Edit profile</h1>
+                    
+                    <example-component v-bind:profileid="{{ Auth::user()->profile->id }}"></example-component>
 
                     <form method="POST" action="/profiles/{{ $profile->id }}" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
@@ -28,6 +30,11 @@
                                 <input class="form-control" type="text" class="textarea" name="city" placeholder="city" value="{{ $profile->city }}">
                             </div>
                         </div>
+                        <br>
+                        
+                        
+                        
+
                         <br>
                         <div class="field">
                             <label class="label" for="age">Age</label>
@@ -57,7 +64,7 @@
                             <label class="label" for="desc">Description</label>
 
                             <div class="control">
-                                <textarea class="form-control" name="desc" class="textarea">{{ $profile->desc }}</textarea>
+                                <textarea class="form-control" name="desc" class="textarea" maxlength=250>{{ $profile->desc }}</textarea>
                             </div>
                         </div>
                         <br>
@@ -65,7 +72,7 @@
                             <label class="label" for="influences">Influences</label>
 
                             <div class="control">
-                                <textarea class="form-control" name="influences" class="textarea">{{ $profile->influences }}</textarea>
+                                <textarea class="form-control" name="influences" class="textarea" maxlength=250>{{ $profile->influences }}</textarea>
                             </div>
                         </div>
                         <br>
@@ -104,6 +111,7 @@
 
                             <div class="control">
                             <select class="form-control" type="text" name="improvise" class="input">
+                                
                             <?php
                             for ($i = 1; $i <= 10; $i++) {
                                 if ($i == $profile->improvise) {
@@ -152,7 +160,7 @@
                     <br>
 
                     <form method="POST" action="/profiles/{{ $profile->id }}">
-                        @method('DELETE')
+                        @method('PATCH')
                         @csrf
                         <div class="field control">
 

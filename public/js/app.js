@@ -1779,10 +1779,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    profileid: {
+      type: Number
+    }
+  },
+  data: function data() {
+    return {
+      instruments: [],
+      talents: [],
+      talentObjects: []
+    };
+  },
+  methods: {
+    displayInstruments: function displayInstruments() {
+      var _this = this;
+
+      axios.all([axios.get('/all'), axios.get('/played/' + this.profileid)]).then(axios.spread(function (firstResponse, secondResponse) {
+        _this.instruments = firstResponse.data;
+        _this.talents = secondResponse.data;
+
+        for (var i in _this.instruments) {
+          _this.talentObjects.push(_this.instruments[i]);
+        }
+
+        for (var _i in _this.talentObjects) {
+          for (var j in _this.talents) {
+            if (_this.talentObjects[_i].id == _this.talents[j].instrument_id) {
+              console.log("TOP TalentObjects: " + _this.talentObjects[_i].id);
+              console.log("TOP talents: " + _this.talents[j].instrument_id);
+              _this.talentObjects[_i].isPlayed = 1;
+            }
+          }
+        }
+      }))["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    addInstrument: function addInstrument(e) {
+      var _this2 = this;
+
+      axios.get('/add/' + this.profileid + '/' + e.target.id).then(function (response) {
+        _this2.instruments = [];
+        _this2.talents = [];
+        _this2.talentObjects = [];
+
+        _this2.displayInstruments();
+      });
+    },
+    deleteInstrument: function deleteInstrument() {
+      console.log("DELETE");
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
-  }
+    this.displayInstruments();
+  },
+  computed: {}
 });
 
 /***/ }),
@@ -37076,32 +37135,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col text-center" },
+        [
+          _c("div", [_vm._v("Instruments")]),
+          _vm._v(" "),
+          _vm._l(_vm.talentObjects, function(talentObject) {
+            return _c(
+              "div",
+              { key: talentObject.id },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: talentObject.type,
+                      expression: "talentObject.type"
+                    }
+                  ],
+                  staticClass: "text",
+                  attrs: { readonly: "" },
+                  domProps: { value: talentObject.type },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(talentObject, "type", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                talentObject.isPlayed === 1
+                  ? [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-danger",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.deleteInstrument }
+                        },
+                        [_vm._v("delete")]
+                      )
+                    ]
+                  : _vm._e(),
+                _vm._v(" "),
+                talentObject.isPlayed === 0
+                  ? [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-success",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.addInstrument }
+                        },
+                        [_vm._v("add")]
+                      )
+                    ]
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br")
+              ],
+              2
+            )
+          })
+        ],
+        2
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

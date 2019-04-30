@@ -16,6 +16,7 @@ class CreateInstrumentsTable extends Migration
         Schema::create('instruments', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('type');
+            $table->boolean('isPlayed')->default(0);
             $table->timestamps();
         });
     }
