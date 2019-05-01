@@ -32,6 +32,20 @@ class TalentController extends Controller
         
     }
 
+    public function index2()
+    {
+
+        return Talent::distinct()->get(['profile_id']);
+
+    }
+
+    public function bassists()
+    {
+
+        return Talent::where('instrument_id', 2)->get();
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

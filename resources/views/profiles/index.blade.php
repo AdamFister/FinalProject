@@ -62,7 +62,7 @@
     <div class="col">{{ $profile->read_write_music }}</div>
     <div class="col">{{ $profile->improvise }}</div>
     <div class="col">{{ $profile->ear }}</div>
-    <div class="col"><a href="/profiles/{{ $profile->id }} /edit" class="btn btn-success btn-sm">Edit</a></div>
+    <div class="col"><a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm">Edit</a></div>
 </div>
 @endforeach
 

@@ -64,7 +64,7 @@
                                     <br>
                                     <?php foreach ($talents as $talent) {
                                         foreach ($instruments as $instrument)
-                                            if ($talent->profile_id == 3) {
+                                            if ($talent->profile_id == $profile->id) {
                                                 if ($talent->instrument_id == $instrument->id) {
                                                     echo $instrument->type;
                                                     echo "<br />\n";
@@ -145,7 +145,7 @@
                             <br>
                         </form>
 
-                        <a href="/profiles/{{ $profile->id }} /edit" class="btn btn-success btn-sm">Edit Profile</a>
+                        <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm">Edit Profile</a>
 
 
                         <br>

@@ -13,6 +13,11 @@ class ProfileSeeder extends Seeder
     {
         {
             \App\Profile::create([
+                'nickname' => 'Admin',
+                'user_id' => 1
+            ]);
+
+            \App\Profile::create([
                 'nickname' => 'Ringo',
                 'user_id' => 2,
                 'photo' => 'images/4yVsZTaeEtm3rIMw02mTfjG1W9GGUbR2kPyF1Yzv.jpeg'

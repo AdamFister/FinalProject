@@ -9,7 +9,9 @@
                 <div class="card-body">
                     <h1 class='title'>Edit profile</h1>
 
-                    <example-component v-bind:profileid="{{ Auth::user()->profile->id }}"></example-component>
+                    <!-- PHP HERE TO TEST FOR ADMIN, IF ADMIN THEN PASS ASSOCIATED PROFILE ID INSTEAD OF AUTH USER PROFILE ID -->
+
+                    <example-component v-bind:profileid="{{ $profile->id }}"></example-component>
 
                     <form method="POST" action="/profiles/{{ $profile->id }}" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}

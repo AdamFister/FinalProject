@@ -17,6 +17,9 @@ Route::get('/all', 'InstrumentController@index');
 Route::get('/played/{id}', 'TalentController@index');
 Route::get('/add/{id}/{instid}', 'TalentController@create');
 Route::get('/delete/{id}/{instid}', 'TalentController@destroy');
+Route::get('/allProfiles', 'TalentController@index2');
+Route::get('/bassists', 'TalentController@bassists');
+Route::get('/getProfiles', 'ProfileController@index2');
 
 Route::get('/', function () {
     return view('welcome');

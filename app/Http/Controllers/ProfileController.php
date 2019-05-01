@@ -20,8 +20,15 @@ class ProfileController extends Controller
 
         return view('profiles.index', compact('profiles'));
 
+    }
+
+    public function index2()
+    {
+
+        return Profile::all();
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -70,8 +77,15 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profile = Profile::findOrFail($id);
-        return view('profiles.edit', ['profile' => $profile]);
+        $user = Auth::user();
+
+        if ($user->admin || $user->profile->id == $id) {
+            $profile = Profile::findOrFail($id);
+            return view('profiles.edit', ['profile' => $profile]);
+        } else {
+            return redirect('/home');
+        }
+
     }
 
     /**

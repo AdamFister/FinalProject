@@ -49,8 +49,8 @@
                         for (let i in this.talentObjects) {
                             for (let j in this.talents) {
                                 if (this.talentObjects[i].id == this.talents[j].instrument_id) {
-                                    console.log("TOP TalentObjects: " + this.talentObjects[i].id);
-                                    console.log("TOP talents: " + this.talents[j].instrument_id);
+                                    // console.log("TalentObjects: " + this.talentObjects[i].id);
+                                    // console.log("talents: " + this.talents[j].instrument_id);
                                     this.talentObjects[i].isPlayed = 1;
                                 }
                             }

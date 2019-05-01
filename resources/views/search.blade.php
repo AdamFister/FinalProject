@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h1>SEARCH STUFF</h1>
+<search-component v-bind:profileid="{{ Auth::user()->profile->id }}"></search-component>
 
 
 @endsection
