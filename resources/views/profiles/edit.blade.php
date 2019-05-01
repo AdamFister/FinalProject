@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class='title'>Edit profile</h1>
-                    
+
                     <example-component v-bind:profileid="{{ Auth::user()->profile->id }}"></example-component>
 
                     <form method="POST" action="/profiles/{{ $profile->id }}" enctype="multipart/form-data">
@@ -33,9 +33,6 @@
                         <br>
                         
                         
-                        
-
-                        <br>
                         <div class="field">
                             <label class="label" for="age">Age</label>
 

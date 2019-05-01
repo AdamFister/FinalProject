@@ -102,8 +102,12 @@ class TalentController extends Controller
      * @param  \App\Talent  $talent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Talent $talent)
+    public function destroy($id, $instid)
     {
-        //
+
+        Talent::where('profile_id', $id)->where('instrument_id', $instid)->delete();
+        $talents = Talent::all();
+
+        return json_encode($talents);
     }
 }

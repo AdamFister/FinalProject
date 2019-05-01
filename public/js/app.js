@@ -1834,8 +1834,16 @@ __webpack_require__.r(__webpack_exports__);
         _this2.displayInstruments();
       });
     },
-    deleteInstrument: function deleteInstrument() {
-      console.log("DELETE");
+    deleteInstrument: function deleteInstrument(e) {
+      var _this3 = this;
+
+      axios.get('/delete/' + this.profileid + '/' + e.target.id).then(function (response) {
+        _this3.instruments = [];
+        _this3.talents = [];
+        _this3.talentObjects = [];
+
+        _this3.displayInstruments();
+      });
     }
   },
   mounted: function mounted() {

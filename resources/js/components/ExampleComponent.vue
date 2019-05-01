@@ -72,8 +72,16 @@
              )
         },
 
-        deleteInstrument() {
-            console.log("DELETE");
+        deleteInstrument(e) {
+            axios.get('/delete/' + this.profileid + '/' + e.target.id)
+                .then(response => {
+
+                this.instruments = [];
+                this.talents = [];
+                this.talentObjects = [];
+                this.displayInstruments();
+                 }   
+             )
         }
     },
 
