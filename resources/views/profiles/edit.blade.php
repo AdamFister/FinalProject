@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h1 class='title'>Edit profile</h1>
 
-                    <!-- PHP HERE TO TEST FOR ADMIN, IF ADMIN THEN PASS ASSOCIATED PROFILE ID INSTEAD OF AUTH USER PROFILE ID -->
+                    <!-- PASS ID FROM URL INSTEAD OF SIGNED IN -->
 
                     <example-component v-bind:profileid="{{ $profile->id }}"></example-component>
 

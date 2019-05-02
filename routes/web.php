@@ -21,6 +21,8 @@ Route::get('/allProfiles', 'TalentController@index2');
 Route::get('/bassists', 'TalentController@bassists');
 Route::get('/getProfiles', 'ProfileController@index2');
 
+Route::get('/profiles/{id}', 'ProfileController@getProfileByID');
+
 Route::get('/', function () {
     return view('welcome');
 });

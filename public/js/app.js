@@ -37372,7 +37372,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", { on: { click: _vm.displayBassists } }, [
-            _vm._v("Bass")
+            _vm._v("Bassists")
           ]),
           _vm._v(" "),
           _c("br"),
@@ -37390,15 +37390,18 @@ var render = function() {
                   [
                     musicianObject.profile_id == profileObject.id
                       ? [
-                          _c("p", [_vm._v(_vm._s(profileObject.nickname))]),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-success btn-sm",
-                              attrs: { href: "/profiles/" + profileObject.id }
-                            },
-                            [_vm._v("View Profile")]
-                          )
+                          _c("p", [
+                            _vm._v(_vm._s(profileObject.nickname) + " "),
+                            _c("br"),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-success btn-sm",
+                                attrs: { href: "/profiles/" + profileObject.id }
+                              },
+                              [_vm._v("View Profile")]
+                            )
+                          ])
                         ]
                       : _vm._e()
                   ],

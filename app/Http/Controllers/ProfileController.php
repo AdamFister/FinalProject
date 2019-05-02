@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -26,6 +27,14 @@ class ProfileController extends Controller
     {
 
         return Profile::all();
+
+    }
+
+    public function getProfileByID($id)
+    {
+        $user = User::findOrFail($id);
+        $profile = $user->profile;
+        return view('profiles.show', ['profile' => $profile]);
 
     }
 

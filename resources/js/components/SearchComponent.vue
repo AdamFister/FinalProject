@@ -6,13 +6,13 @@
                     <br>
                     <br>
                     <button @click="displayMusicians">Show All</button>
-                    <button @click="displayBassists">Bass</button>
+                    <button @click="displayBassists">Bassists</button>
                     <br>
                     <br>
                         <div v-for="profileObject in profileObjects" :key="profileObject.id">
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
                             <template v-if="musicianObject.profile_id == profileObject.id">
-                            <p>{{ profileObject.nickname }}</p><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a>
+                            <p>{{ profileObject.nickname }} <br><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></p>
                             </template>
                         </div>
                             <!-- <input readonly class="text" v-model="musicianObject.nickname"> -->
