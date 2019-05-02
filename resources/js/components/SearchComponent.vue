@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col text-center">
+
                     {{ filter }}
                     <br>
                     <br>
@@ -11,9 +10,15 @@
                     <br>
                         <div v-for="profileObject in profileObjects" :key="profileObject.id">
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
-                            <template v-if="musicianObject.profile_id == profileObject.id">
-                            <p>{{ profileObject.nickname }} <br><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></p>
-                            </template>
+                            <div v-if="musicianObject.profile_id == profileObject.id">
+                            <div class="row">
+                                <div class="col">{{ profileObject.nickname }}</div> 
+                                <div class="col left">
+                                <img class="profileImg2" :src='"/files/" + profileObject.photo'/>
+                                </div>
+                                <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></div>
+                                </div>
+                            </div>
                         </div>
                             <!-- <input readonly class="text" v-model="musicianObject.nickname"> -->
                                 <!-- <template v-if="talentObject.isPlayed === 1"> 
@@ -24,8 +29,6 @@
                                  </template> -->
                         
                     </div>
-                </div>
-            </div>
         </div>
 
 </template>

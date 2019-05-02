@@ -1895,6 +1895,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -37354,68 +37357,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col text-center" },
-        [
-          _vm._v(
-            "\n                " + _vm._s(_vm.filter) + "\n                "
-          ),
-          _c("br"),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("button", { on: { click: _vm.displayMusicians } }, [
-            _vm._v("Show All")
-          ]),
-          _vm._v(" "),
-          _c("button", { on: { click: _vm.displayBassists } }, [
-            _vm._v("Bassists")
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _vm._l(_vm.profileObjects, function(profileObject) {
-            return _c(
-              "div",
-              { key: profileObject.id },
-              _vm._l(_vm.musicianObjects, function(musicianObject) {
-                return _c(
-                  "div",
-                  { key: musicianObject.id },
-                  [
-                    musicianObject.profile_id == profileObject.id
-                      ? [
-                          _c("p", [
-                            _vm._v(_vm._s(profileObject.nickname) + " "),
-                            _c("br"),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-success btn-sm",
-                                attrs: { href: "/profiles/" + profileObject.id }
-                              },
-                              [_vm._v("View Profile")]
-                            )
-                          ])
-                        ]
-                      : _vm._e()
-                  ],
-                  2
-                )
-              }),
-              0
-            )
-          })
-        ],
-        2
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _vm._v(
+        "\n\n                " + _vm._s(_vm.filter) + "\n                "
+      ),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayMusicians } }, [
+        _vm._v("Show All")
+      ]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayBassists } }, [
+        _vm._v("Bassists")
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _vm._l(_vm.profileObjects, function(profileObject) {
+        return _c(
+          "div",
+          { key: profileObject.id },
+          _vm._l(_vm.musicianObjects, function(musicianObject) {
+            return _c("div", { key: musicianObject.id }, [
+              musicianObject.profile_id == profileObject.id
+                ? _c("div", [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.nickname))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col left" }, [
+                        _c("img", {
+                          staticClass: "profileImg2",
+                          attrs: { src: "/files/" + profileObject.photo }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: { href: "/profiles/" + profileObject.id }
+                          },
+                          [_vm._v("View Profile")]
+                        )
+                      ])
+                    ])
+                  ])
+                : _vm._e()
+            ])
+          }),
+          0
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

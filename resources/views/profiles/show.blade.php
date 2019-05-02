@@ -24,8 +24,6 @@
                     <a class="btn btn-info" href="/users">Users Page</a>
                     <a class="btn btn-info" href="/profiles">Profiles Page</a>
 
-
-
                     @else
 
                 <!-- HOW TO PASS ID FROM URL CLICKED ON SEARCH PAGE TO HERE -->
