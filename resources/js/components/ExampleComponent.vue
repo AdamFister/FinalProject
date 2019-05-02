@@ -1,20 +1,27 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col text-center">
-                    <div>Instruments</div>
-                    
-                        <div v-for="talentObject in talentObjects" :key="talentObject.id">
+           
+                    <div class="left">Instruments</div>
+                    <br>
+                    <br>
+                        <div class="container" v-for="talentObject in talentObjects" :key="talentObject.id">
+                            <div class="row">
                             <input readonly class="text" v-model="talentObject.type">
                                 <template v-if="talentObject.isPlayed === 1">
-                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger">delete</button>
+                                    <div class="col right">
+                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger btndeladd">delete</button>
+                                    </div>
                                 </template>
                                 <template v-if="talentObject.isPlayed === 0">
-                                    <button :id="talentObject.id" type="button" @click='addInstrument' class="btn-sm btn-success">add</button>
+                                    <div class="col right">
+                                    <button :id="talentObject.id" type="button" @click='addInstrument' class="btn-sm btn-success btndeladd">add</button>
+                                    </div>
                                 </template>
+                                </div>
                         <br>
                     </div>
-                </div>
+                
             </div>
         </div>
 

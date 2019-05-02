@@ -27,6 +27,10 @@
                 <!-- <a class="navbar-brand" href="/">
                     Welcome
                 </a> -->
+                
+                <a class="navbar-brand" href="/login">
+                <img class="logomin" src="/files/images/LocalJam.png">
+                </a>
                 <a class="navbar-brand" href="/home">
                     My Profile
                 </a>

@@ -23,7 +23,7 @@ class ProfileController extends Controller
 
     }
 
-    public function index2()
+    public function getAllProfiles()
     {
 
         return Profile::all();

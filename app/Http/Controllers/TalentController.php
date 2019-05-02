@@ -32,7 +32,7 @@ class TalentController extends Controller
         
     }
 
-    public function index2()
+    public function uniqueTalents()
     {
 
         return Talent::distinct()->get(['profile_id']);

@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col">{{ profileObject.nickname }}</div> 
                                 <div class="col left">
-                                <img class="profileImg2" :src='"/files/" + profileObject.photo'/>
+                                <img class="searchImg" :src='"/files/" + profileObject.photo'/>
                                 </div>
                                 <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></div>
                                 </div>
@@ -51,8 +51,8 @@
         }
     },
     methods: {
-        getProfiles() {
-            axios.get('/getProfiles')
+        allProfiles() {
+            axios.get('/allProfiles')
                     .then(response => {
                         console.log("ALLPROFILES");
                         this.profiles = response.data;
@@ -69,7 +69,7 @@
             this.filter = "Showing All";
             this.musicianObjects = [];
             this.musicians = [];
-            axios.get('/allProfiles')
+            axios.get('/allTalents')
                     .then(response => {
                         console.log("ALL");
                         this.musicians = response.data;
@@ -102,7 +102,7 @@
 
     mounted() {
 
-        this.getProfiles();
+        this.allProfiles();
         this.displayMusicians();
         
     },

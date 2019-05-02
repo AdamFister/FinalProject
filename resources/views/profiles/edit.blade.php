@@ -83,6 +83,7 @@
                             </div>
                         </div>
                         <br>
+                        
                         <div class="field">
                             <label class="label" for="read_write_music">Read/Write Music</label>
                             <div class="control">
@@ -152,7 +153,7 @@
                         <br>
                         <div class="field">
                             <div class="control">
-                                <button type="submit" class="btn btn-primary">Update profile</button>
+                                <button type="submit" class="btn btn-primary btn-block">Update profile</button>
                             </div>
                         </div>
                     </form>

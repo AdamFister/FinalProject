@@ -1785,6 +1785,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -1914,10 +1921,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getProfiles: function getProfiles() {
+    allProfiles: function allProfiles() {
       var _this = this;
 
-      axios.get('/getProfiles').then(function (response) {
+      axios.get('/allProfiles').then(function (response) {
         console.log("ALLPROFILES");
         _this.profiles = response.data;
 
@@ -1934,7 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
       this.filter = "Showing All";
       this.musicianObjects = [];
       this.musicians = [];
-      axios.get('/allProfiles').then(function (response) {
+      axios.get('/allTalents').then(function (response) {
         console.log("ALL");
         _this2.musicians = response.data;
 
@@ -1964,7 +1971,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.getProfiles();
+    this.allProfiles();
     this.displayMusicians();
   },
   computed: {}
@@ -37262,17 +37269,21 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col text-center" },
-        [
-          _c("div", [_vm._v("Instruments")]),
-          _vm._v(" "),
-          _vm._l(_vm.talentObjects, function(talentObject) {
-            return _c(
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "left" }, [_vm._v("Instruments")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _vm._l(_vm.talentObjects, function(talentObject) {
+          return _c("div", { key: talentObject.id, staticClass: "container" }, [
+            _c(
               "div",
-              { key: talentObject.id },
+              { staticClass: "row" },
               [
                 _c("input", {
                   directives: [
@@ -37298,41 +37309,45 @@ var render = function() {
                 _vm._v(" "),
                 talentObject.isPlayed === 1
                   ? [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-sm btn-danger",
-                          attrs: { id: talentObject.id, type: "button" },
-                          on: { click: _vm.deleteInstrument }
-                        },
-                        [_vm._v("delete")]
-                      )
+                      _c("div", { staticClass: "col right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-sm btn-danger btndeladd",
+                            attrs: { id: talentObject.id, type: "button" },
+                            on: { click: _vm.deleteInstrument }
+                          },
+                          [_vm._v("delete")]
+                        )
+                      ])
                     ]
                   : _vm._e(),
                 _vm._v(" "),
                 talentObject.isPlayed === 0
                   ? [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-sm btn-success",
-                          attrs: { id: talentObject.id, type: "button" },
-                          on: { click: _vm.addInstrument }
-                        },
-                        [_vm._v("add")]
-                      )
+                      _c("div", { staticClass: "col right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-sm btn-success btndeladd",
+                            attrs: { id: talentObject.id, type: "button" },
+                            on: { click: _vm.addInstrument }
+                          },
+                          [_vm._v("add")]
+                        )
+                      ])
                     ]
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("br")
+                  : _vm._e()
               ],
               2
-            )
-          })
-        ],
-        2
-      )
-    ])
+            ),
+            _vm._v(" "),
+            _c("br")
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -37395,7 +37410,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "col left" }, [
                         _c("img", {
-                          staticClass: "profileImg2",
+                          staticClass: "searchImg",
                           attrs: { src: "/files/" + profileObject.photo }
                         })
                       ]),

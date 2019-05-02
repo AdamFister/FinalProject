@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">My Profile</div>
+                <div class="card-header">Musician</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -59,8 +59,8 @@
                                             <input readonly class="form-control-plaintext" type="text" class="textarea" name="city" placeholder="city" value="{{ $profile->city }}">
                                         </div>
                                     </div>
-                                    <br>
-                                    Instruments:
+                                    
+                                    <!-- Instruments: -->
                                     <br>
                                     <?php foreach ($talents as $talent) {
                                         foreach ($instruments as $instrument)
@@ -88,6 +88,8 @@
                                         </div>
                                     </div>
                                     <br>
+                                    <br>
+
                                     <div class="field">
                                         <label class="label" for="read_write_music">Read/Write Music</label>
 
@@ -142,10 +144,10 @@
                                     <br>
                                 </div>
                             </div>
-                            <br>
+                            
                         </form>
 
-                        <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm">Edit Profile</a>
+                        <!-- <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm">Edit Profile</a> -->
 
 
                         <br>
