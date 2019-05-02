@@ -87,8 +87,8 @@
                         <div class="field">
                             <label class="label" for="read_write_music">Read/Write Music</label>
                             <div class="control">
-
-                            <select class="form-control" type="text" name="read_write_music" class="input">
+                                                <!-- FIX DROPDOWN WIDTH -->
+                            <select id="dropdown" class="form-control" type="text" name="read_write_music" class="input">
                             <?php
                             for ($i = 1; $i <= 10; $i++) {
                                 if ($i == $profile->read_write_music) {
@@ -110,7 +110,7 @@
                             <label class="label" for="improvise">Improvise</label>
 
                             <div class="control">
-                            <select class="form-control" type="text" name="improvise" class="input">
+                            <select id="dropdown" class="form-control" type="text" name="improvise" class="input">
                                 
                             <?php
                             for ($i = 1; $i <= 10; $i++) {
@@ -133,7 +133,7 @@
                             <label class="label" for="ear">Ear</label>
 
                             <div class="control">
-                            <select class="form-control" type="text" name="ear" class="input">
+                            <select id="dropdown" class="form-control" type="text" name="ear" class="input">
                             <?php
                             for ($i = 1; $i <= 10; $i++) {
                                 if ($i == $profile->ear) {

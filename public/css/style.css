@@ -24,6 +24,10 @@
   max-height: 75px;
 }
 
+#dropdown {
+  width: 100px;
+}
+
 /* .row {
   border: 1px solid red;
 }
