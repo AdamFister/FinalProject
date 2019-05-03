@@ -8,8 +8,11 @@
                     <button @click="displayBassists">Bassists</button>
                     <br>
                     <br>
+                    <!-- LOOP THROUGH ALL PROFILES -->
                         <div v-for="profileObject in profileObjects" :key="profileObject.id">
+                            <!-- LOOP THROUGH MUSICIANS FROM CREATED OBJECT ONLY CONTAINING PROFILES MATCHING SPECIFIED VALUES -->
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
+                            <!-- ONLY DISPLAY PROFILES MATCHING SPECIFIED VALUE -->
                             <div v-if="musicianObject.profile_id == profileObject.id">
                             <div class="row">
                                 <div class="col-sm-2">{{ profileObject.nickname }}</div> 
