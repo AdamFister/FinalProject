@@ -81,10 +81,10 @@
                                     </div>
                                     <br>
                                     <div class="field">
-                                        <!-- <label class="label" for="music_type">Music</label> -->
+                                        <!-- <label class="label" for="genre">Music</label> -->
 
                                         <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="music_type" placeholder="music" value="{{ $profile->music_type }}">
+                                            <input readonly class="form-control-plaintext" type="text" class="input" name="genre" placeholder="music" value="{{ $profile->genre }}">
                                         </div>
                                     </div>
                                     <br>

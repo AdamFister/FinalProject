@@ -58,7 +58,7 @@
     <!-- <div class="col">{{ $profile->photo }}</div> -->
     <div class="col">{{ $profile->desc }}</div>
     <div class="col">{{ $profile->influences }}</div>
-    <div class="col">{{ $profile->music_type }}</div>
+    <div class="col">{{ $profile->genre }}</div>
     <div class="col">{{ $profile->read_write_music }}</div>
     <div class="col">{{ $profile->improvise }}</div>
     <div class="col">{{ $profile->ear }}</div>

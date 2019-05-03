@@ -10,7 +10,7 @@
                             <input readonly class="text" v-model="talentObject.type">
                                 <template v-if="talentObject.isPlayed === 1">
                                     <div class="col right">
-                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger btndeladd">delete</button>
+                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger btndeladd">remove</button>
                                     </div>
                                 </template>
                                 <template v-if="talentObject.isPlayed === 0">

@@ -76,10 +76,10 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="music_type">Music</label>
+                            <label class="label" for="genre">Music</label>
 
                             <div class="control">
-                                <input class="form-control" type="text" class="input" name="music_type" placeholder="classic rock" value="{{ $profile->music_type }}">
+                                <input class="form-control" type="text" class="input" name="genre" placeholder="classic rock" value="{{ $profile->genre }}">
                             </div>
                         </div>
                         <br>

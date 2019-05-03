@@ -1905,6 +1905,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -37317,7 +37321,7 @@ var render = function() {
                             attrs: { id: talentObject.id, type: "button" },
                             on: { click: _vm.deleteInstrument }
                           },
-                          [_vm._v("delete")]
+                          [_vm._v("remove")]
                         )
                       ])
                     ]
@@ -37404,7 +37408,7 @@ var render = function() {
               musicianObject.profile_id == profileObject.id
                 ? _c("div", [
                     _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col" }, [
+                      _c("div", { staticClass: "col-sm-2" }, [
                         _vm._v(_vm._s(profileObject.nickname))
                       ]),
                       _vm._v(" "),
@@ -37413,6 +37417,18 @@ var render = function() {
                           staticClass: "searchImg",
                           attrs: { src: "/files/" + profileObject.photo }
                         })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.age))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.city))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.genre))
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [

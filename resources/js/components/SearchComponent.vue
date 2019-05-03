@@ -12,11 +12,15 @@
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
                             <div v-if="musicianObject.profile_id == profileObject.id">
                             <div class="row">
-                                <div class="col">{{ profileObject.nickname }}</div> 
+                                <div class="col-sm-2">{{ profileObject.nickname }}</div> 
                                 <div class="col left">
                                 <img class="searchImg" :src='"/files/" + profileObject.photo'/>
                                 </div>
+                                <div class="col">{{ profileObject.age }}</div>
+                                <div class="col">{{ profileObject.city }}</div>
+                                <div class="col">{{ profileObject.genre }}</div>
                                 <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></div>
+                                
                                 </div>
                             </div>
                         </div>

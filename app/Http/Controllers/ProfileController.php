@@ -119,7 +119,7 @@ class ProfileController extends Controller
         
         $profile->desc = request('desc');
         $profile->influences = request('influences');
-        $profile->music_type = request('music_type');
+        $profile->genre = request('genre');
         $profile->read_write_music = request('read_write_music');
         $profile->improvise = request('improvise');
         $profile->ear = request('ear');

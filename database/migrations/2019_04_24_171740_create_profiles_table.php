@@ -23,7 +23,7 @@ class CreateProfilesTable extends Migration
             $table->binary('photo')->nullable();
             $table->string('desc')->nullable();
             $table->string('influences')->nullable();
-            $table->string('music_type')->nullable();
+            $table->string('genre')->nullable();
             $table->bigInteger('read_write_music')->nullable();
             $table->bigInteger('improvise')->nullable();
             $table->bigInteger('ear')->nullable();
