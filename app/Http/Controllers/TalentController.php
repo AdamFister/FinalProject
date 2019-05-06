@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Talent;
+use App\Instrument;
 use App\Profile;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
@@ -39,10 +40,52 @@ class TalentController extends Controller
 
     }
 
+    public function vocalists()
+    {
+
+        return Talent::where('instrument_id', 3)->get();
+
+    }
+
+    public function guitarists()
+    {
+
+        return Talent::where('instrument_id', 1)->get();
+
+    }
+
     public function bassists()
     {
 
         return Talent::where('instrument_id', 2)->get();
+
+    }
+
+    public function drummers()
+    {
+
+        return Talent::where('instrument_id', 4)->get();
+
+    }
+
+    public function keyboardists()
+    {
+
+        return Talent::where('instrument_id', 5)->get();
+
+    }
+
+    public function getTalents()
+    {
+
+        return Talent::all();
+
+    }
+
+    public function getInstruments()
+    {
+
+        return Instrument::all();
 
     }
 

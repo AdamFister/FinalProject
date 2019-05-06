@@ -1,10 +1,11 @@
 .profileImg {
-    max-width: 50%;
+    max-width: 95%;
     height: auto;
 }
 
 .searchImg {
-    max-width: 50%;
+    max-width: 80%;
+    min-width: 15px;
     height: auto;
     padding-top: 5%;
 }

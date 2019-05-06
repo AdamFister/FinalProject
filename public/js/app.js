@@ -1912,6 +1912,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -1924,7 +1929,11 @@ __webpack_require__.r(__webpack_exports__);
       profiles: [],
       musicianObjects: [],
       musicians: [],
-      filter: ""
+      filter: "",
+      talents: [],
+      talentObjects: [],
+      instrumentObjects: [],
+      userObjects: []
     };
   },
   methods: {
@@ -1933,45 +1942,107 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/allProfiles').then(function (response) {
         console.log("ALLPROFILES");
-        _this.profiles = response.data;
+        _this.profileObjects = response.data; // for (let i in this.profiles) {
+        //         this.profileObjects.push(this.profiles[i]);
+        //             }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displaySearchInstruments: function displaySearchInstruments() {
+      var _this2 = this;
 
-        for (var i in _this.profiles) {
-          _this.profileObjects.push(_this.profiles[i]);
-        }
+      this.talentObjects = [];
+      axios.get('/getTalents').then(function (response) {
+        _this2.talentObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInstrumentObjects: function getInstrumentObjects() {
+      var _this3 = this;
+
+      this.instrumentObjects = [];
+      axios.get('/getInstruments').then(function (response) {
+        _this3.instrumentObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
     displayMusicians: function displayMusicians() {
-      var _this2 = this;
+      var _this4 = this;
 
-      this.filter = "Showing All";
+      this.filter = "All";
       this.musicianObjects = [];
       this.musicians = [];
-      axios.get('/allTalents').then(function (response) {
-        console.log("ALL");
-        _this2.musicians = response.data;
+      this.displaySearchInstruments();
+      axios.get('/uniqueTalents').then(function (response) {
+        _this4.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayVocalists: function displayVocalists() {
+      var _this5 = this;
 
-        for (var i in _this2.musicians) {
-          _this2.musicianObjects.push(_this2.musicians[i]);
-        }
+      this.filter = "Vocalists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/vocalists').then(function (response) {
+        _this5.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayGuitarists: function displayGuitarists() {
+      var _this6 = this;
+
+      this.filter = "Guitarists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/guitarists').then(function (response) {
+        _this6.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
     displayBassists: function displayBassists() {
-      var _this3 = this;
+      var _this7 = this;
 
-      this.filter = "Showing Bassists";
+      this.filter = "Bassists";
       this.musicianObjects = [];
       this.musicians = [];
+      this.displaySearchInstruments();
       axios.get('/bassists').then(function (response) {
-        console.log("BASS");
-        _this3.musicians = response.data;
+        _this7.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayDrummers: function displayDrummers() {
+      var _this8 = this;
 
-        for (var i in _this3.musicians) {
-          _this3.musicianObjects.push(_this3.musicians[i]);
-        }
+      this.filter = "Drummers";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/drummers').then(function (response) {
+        _this8.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayKeyboardists: function displayKeyboardists() {
+      var _this9 = this;
+
+      this.filter = "Keyboardists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/keyboardists').then(function (response) {
+        _this9.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -1980,6 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.allProfiles();
     this.displayMusicians();
+    this.getInstrumentObjects();
   },
   computed: {}
 });
@@ -37383,22 +37455,29 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _vm._v(
-        "\n\n                " + _vm._s(_vm.filter) + "\n                "
-      ),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _c("button", { on: { click: _vm.displayMusicians } }, [
         _vm._v("Show All")
       ]),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayBassists } }, [
-        _vm._v("Bassists")
+      _c("button", { on: { click: _vm.displayVocalists } }, [_vm._v("Vocals")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayGuitarists } }, [
+        _vm._v("Guitar")
+      ]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayBassists } }, [_vm._v("Bass")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayDrummers } }, [_vm._v("Drums")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.displayKeyboardists } }, [
+        _vm._v("Keys")
       ]),
       _vm._v(" "),
       _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("h2", [_vm._v(_vm._s(_vm.filter))]),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
@@ -37412,15 +37491,61 @@ var render = function() {
                 ? _c("div", [
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
-                        _vm._v(_vm._s(profileObject.nickname))
+                        _c(
+                          "a",
+                          { attrs: { href: "/profiles/" + profileObject.id } },
+                          [_vm._v(_vm._s(profileObject.nickname))]
+                        )
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col left" }, [
-                        _c("img", {
-                          staticClass: "searchImg",
-                          attrs: { src: "/files/" + profileObject.photo }
-                        })
+                        _c(
+                          "a",
+                          { attrs: { href: "/profiles/" + profileObject.id } },
+                          [
+                            _c("img", {
+                              staticClass: "searchImg",
+                              attrs: { src: "/files/" + profileObject.photo }
+                            })
+                          ]
+                        )
                       ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col" },
+                        _vm._l(_vm.talentObjects, function(talentTableObject) {
+                          return _c("div", { key: talentTableObject.id }, [
+                            talentTableObject.profile_id == profileObject.id
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.instrumentObjects, function(
+                                    instrumentObject
+                                  ) {
+                                    return _c(
+                                      "div",
+                                      { key: instrumentObject.id },
+                                      [
+                                        talentTableObject.instrument_id ==
+                                        instrumentObject.id
+                                          ? _c("div", [
+                                              _c("div", [
+                                                _vm._v(
+                                                  _vm._s(instrumentObject.type)
+                                                )
+                                              ])
+                                            ])
+                                          : _vm._e()
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ])
+                        }),
+                        0
+                      ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col" }, [
                         _vm._v(_vm._s(profileObject.age))
@@ -37444,7 +37569,9 @@ var render = function() {
                           [_vm._v("View Profile")]
                         )
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("pre", { staticClass: "row" }, [_vm._v(" ")])
                   ])
                 : _vm._e()
             ])

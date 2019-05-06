@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Musician</div>
+            <?php
+                    $profile = Auth::user()->profile;
+                    ?>
+                <div class="card-header"><h3>{{ $profile->nickname }}</h3></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -29,7 +32,6 @@
                     @else
 
                     <?php
-                    $profile = Auth::user()->profile;
                     $talents = \App\Talent::all();
                     $instruments = \App\Instrument::all();
                     ?>
@@ -43,21 +45,18 @@
                             <div class="row">
                                 <div class="col">
                                     {{ csrf_field() }}
-                                    <div class="field">
-                                        <!-- <label class="label" for="nickname">Nickname</label> -->
+                                    <!-- <div class="field">
+                                        <label class="label" for="nickname">Nickname</label>
 
                                         <div class="control">
                                             <input readonly class="form-control-plaintext" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <br>
-                                    <div class="field">
+                                    <div>
                                         <!-- <label class="label" for="city">City</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="textarea" name="city" placeholder="city" value="{{ $profile->city }}">
-                                        </div>
+                                            <p>{{ $profile->city }}</p>
                                     </div>
                                     
                                     <!-- Instruments: -->
@@ -72,21 +71,22 @@
                                             }
                                     } ?>
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="age">Age</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="age" placeholder="age" value="{{ $profile->age }}">
-                                        </div>
-                                    </div>
                                     <br>
-                                    <div class="field">
+                                    <!-- <div class="field">
+                                        <label class="label" for="age">Age</label> -->
+
+                                        <div>
+                                            <p> {{ $profile->age }} </p>
+                                        </div>
+                                    <!-- </div> -->
+                                    <br>
+                                    <!-- <div class="field"> -->
                                         <!-- <label class="label" for="genre">Music</label> -->
 
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="genre" placeholder="music" value="{{ $profile->genre }}">
+                                        <div>
+                                            <p> {{ $profile->genre }} </p>
                                         </div>
-                                    </div>
+                                    <!-- </div> -->
                                     <br>
                                     <br>
                                     <div class="field">
@@ -115,29 +115,19 @@
 
                                 </div>
                                 <div class="col">
-                                    <div class="field">
-
-
-                                        <div class="control">
+                                        <div>
                                             <br>
                                             <img class="profileImg" src="/files/{{ $profile->photo }}" />
-
                                         </div>
-                                    </div>
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="desc">Description</label> -->
-
-                                        <div class="control">
-                                            <textarea readonly class="form-control-plaintext" name="desc" class="textarea" rows=5 placeholder="Description">{{ $profile->desc }}</textarea>
+                                        <div>
+                                            <p>{{ $profile->desc }}</p>
                                         </div>
-                                    </div>
                                     <br>
                                     <div class="field">
                                         <!-- <label class="label" for="influences">Influences</label> -->
-
-                                        <div class="control">
-                                            <textarea readonly class="form-control-plaintext" name="influences" class="textarea" rows=5 placeholder="Influences">{{ $profile->influences }}</textarea>
+                                        <div>
+                                            <p>{{ $profile->influences }}</p>
                                         </div>
                                     </div>
                                     <br>

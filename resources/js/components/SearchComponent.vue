@@ -1,13 +1,18 @@
 <template>
     <div class="container">
 
-                    {{ filter }}
-                    <br>
-                    <br>
+                    
                     <button @click="displayMusicians">Show All</button>
-                    <button @click="displayBassists">Bassists</button>
+                    <button @click="displayVocalists">Vocals</button>
+                    <button @click="displayGuitarists">Guitar</button>
+                    <button @click="displayBassists">Bass</button>
+                    <button @click="displayDrummers">Drums</button>
+                    <button @click="displayKeyboardists">Keys</button>
                     <br>
                     <br>
+                    <h2>{{ filter }}</h2>
+                    <br>
+                    
                     <!-- LOOP THROUGH ALL PROFILES -->
                         <div v-for="profileObject in profileObjects" :key="profileObject.id">
                             <!-- LOOP THROUGH MUSICIANS FROM CREATED OBJECT ONLY CONTAINING PROFILES MATCHING SPECIFIED VALUES -->
@@ -15,26 +20,26 @@
                             <!-- ONLY DISPLAY PROFILES MATCHING SPECIFIED VALUE -->
                             <div v-if="musicianObject.profile_id == profileObject.id">
                             <div class="row">
-                                <div class="col-sm-2">{{ profileObject.nickname }}</div> 
+                                <div class="col-sm-2"><a :href='"/profiles/" + profileObject.id'>{{ profileObject.nickname }}</a></div> 
                                 <div class="col left">
-                                <img class="searchImg" :src='"/files/" + profileObject.photo'/>
+                                <a :href='"/profiles/" + profileObject.id'><img class="searchImg" :src='"/files/" + profileObject.photo'/></a>
                                 </div>
+                                <div class="col">
+                                <div v-for="talentTableObject in talentObjects" :key="talentTableObject.id">
+                                    <div v-if="talentTableObject.profile_id == profileObject.id">
+                                        <div v-for="instrumentObject in instrumentObjects" :key="instrumentObject.id">
+                                            <div v-if="talentTableObject.instrument_id == instrumentObject.id">
+                                        <div>{{ instrumentObject.type }}</div></div></div></div></div>
+                                        </div>
                                 <div class="col">{{ profileObject.age }}</div>
                                 <div class="col">{{ profileObject.city }}</div>
                                 <div class="col">{{ profileObject.genre }}</div>
                                 <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></div>
                                 
                                 </div>
+                                <pre class="row"> </pre>
                             </div>
-                        </div>
-                            <!-- <input readonly class="text" v-model="musicianObject.nickname"> -->
-                                <!-- <template v-if="talentObject.isPlayed === 1"> 
-                                     <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger">delete</button> 
-                                 </template> 
-                                 <template v-if="talentObject.isPlayed === 0"> 
-                                     <button :id="talentObject.id" type="button" @click='addInstrument' class="btn-sm btn-success">add</button> 
-                                 </template> -->
-                        
+                        </div> 
                     </div>
         </div>
 
@@ -54,7 +59,11 @@
                 profiles: [],
                 musicianObjects: [],
                 musicians: [],
-                filter: ""
+                filter: "",
+                talents: [],
+                talentObjects: [],
+                instrumentObjects: [],
+                userObjects: []
         }
     },
     methods: {
@@ -62,10 +71,32 @@
             axios.get('/allProfiles')
                     .then(response => {
                         console.log("ALLPROFILES");
-                        this.profiles = response.data;
-                        for (let i in this.profiles) {
-                                this.profileObjects.push(this.profiles[i]);
-                                    }
+                        this.profileObjects = response.data;
+                        // for (let i in this.profiles) {
+                        //         this.profileObjects.push(this.profiles[i]);
+                        //             }
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        displaySearchInstruments() {
+            this.talentObjects = [];
+            axios.get('/getTalents')
+                    .then(response => {
+                        this.talentObjects = response.data;
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        getInstrumentObjects() {
+            this.instrumentObjects = [];
+            axios.get('/getInstruments')
+                    .then(response => {
+                        this.instrumentObjects = response.data;
                     })
                     .catch(function(error) {
                         console.log(error);
@@ -73,16 +104,41 @@
         },
 
         displayMusicians() {
-            this.filter = "Showing All";
+            this.filter = "All";
             this.musicianObjects = [];
             this.musicians = [];
-            axios.get('/allTalents')
+            this.displaySearchInstruments();
+            axios.get('/uniqueTalents')
                     .then(response => {
-                        console.log("ALL");
-                        this.musicians = response.data;
-                        for (let i in this.musicians) {
-                                this.musicianObjects.push(this.musicians[i]);
-                                    }
+                        this.musicianObjects = response.data;
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        displayVocalists() {
+            this.filter = "Vocalists";
+            this.musicianObjects = [];
+            this.musicians = [];
+            this.displaySearchInstruments();
+            axios.get('/vocalists')
+                    .then(response => {
+                        this.musicianObjects = response.data;
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        displayGuitarists() {
+            this.filter = "Guitarists";
+            this.musicianObjects = [];
+            this.musicians = [];
+            this.displaySearchInstruments();
+            axios.get('/guitarists')
+                    .then(response => {
+                        this.musicianObjects = response.data;
                     })
                     .catch(function(error) {
                         console.log(error);
@@ -90,16 +146,41 @@
         },
 
         displayBassists() {
-            this.filter = "Showing Bassists";
+            this.filter = "Bassists";
             this.musicianObjects = [];
             this.musicians = [];
+            this.displaySearchInstruments();
             axios.get('/bassists')
                     .then(response => {
-                        console.log("BASS");
-                        this.musicians = response.data;
-                        for (let i in this.musicians) {
-                                this.musicianObjects.push(this.musicians[i]);
-                                    }
+                        this.musicianObjects = response.data;
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        displayDrummers() {
+            this.filter = "Drummers";
+            this.musicianObjects = [];
+            this.musicians = [];
+            this.displaySearchInstruments();
+            axios.get('/drummers')
+                    .then(response => {
+                        this.musicianObjects = response.data;
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+        },
+
+        displayKeyboardists() {
+            this.filter = "Keyboardists";
+            this.musicianObjects = [];
+            this.musicians = [];
+            this.displaySearchInstruments();
+            axios.get('/keyboardists')
+                    .then(response => {
+                        this.musicianObjects = response.data;
                     })
                     .catch(function(error) {
                         console.log(error);
@@ -111,6 +192,7 @@
 
         this.allProfiles();
         this.displayMusicians();
+        this.getInstrumentObjects();
         
     },
 

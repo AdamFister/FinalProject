@@ -20,8 +20,14 @@ Route::get('/add/{id}/{instid}', 'TalentController@create');
 Route::get('/delete/{id}/{instid}', 'TalentController@destroy');
 
 Route::get('/allProfiles', 'ProfileController@getAllProfiles');
-Route::get('/allTalents', 'TalentController@uniqueTalents');
+Route::get('/uniqueTalents', 'TalentController@uniqueTalents');
+Route::get('/getTalents', 'TalentController@getTalents');
+Route::get('/getInstruments', 'TalentController@getInstruments');
+Route::get('/vocalists', 'TalentController@vocalists');
+Route::get('/guitarists', 'TalentController@guitarists');
 Route::get('/bassists', 'TalentController@bassists');
+Route::get('/drummers', 'TalentController@drummers');
+Route::get('/keyboardists', 'TalentController@keyboardists');
 
 Route::get('/profiles/{id}', 'ProfileController@getProfileByID');
 

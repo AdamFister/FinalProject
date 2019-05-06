@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Musician</div>
+                <div class="card-header"><h3>{{ $profile->nickname }}</h3></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -28,39 +28,19 @@
 
                 <!-- HOW TO PASS ID FROM URL CLICKED ON SEARCH PAGE TO HERE -->
 
-                    <?php
-                    // dd($profile);
+                <?php
                     $talents = \App\Talent::all();
                     $instruments = \App\Instrument::all();
+                    $users = \App\User::all();
                     ?>
-                    <!-- <p>{{ $profile->id }}</p> -->
-                    <!-- <div>Welcome, {{ $profile->nickname }}!</div> -->
-
                     <div class="container">
-                        <!-- <h1 class='title'>Edit profile</h1> -->
-
-                        <form method="POST" action="/profiles/{{ $profile->id }}">
                             <div class="row">
                                 <div class="col">
                                     {{ csrf_field() }}
-                                    <div class="field">
-                                        <!-- <label class="label" for="nickname">Nickname</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
-                                        </div>
-                                    </div>
-
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="city">City</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="textarea" name="city" placeholder="city" value="{{ $profile->city }}">
-                                        </div>
+                                    <div>
+                                            <p>{{ $profile->city }}</p>
                                     </div>
-                                    
-                                    <!-- Instruments: -->
                                     <br>
                                     <?php foreach ($talents as $talent) {
                                         foreach ($instruments as $instrument)
@@ -72,24 +52,15 @@
                                             }
                                     } ?>
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="age">Age</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="age" placeholder="age" value="{{ $profile->age }}">
+                                    <br>
+                                        <div>
+                                            <p> {{ $profile->age }} </p>
                                         </div>
-                                    </div>
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="genre">Music</label> -->
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="genre" placeholder="music" value="{{ $profile->genre }}">
+                                        <div>
+                                            <p> {{ $profile->genre }} </p>
                                         </div>
-                                    </div>
                                     <br>
-                                    <br>
-
                                     <div class="field">
                                         <label class="label" for="read_write_music">Read/Write Music</label>
 
@@ -116,44 +87,40 @@
 
                                 </div>
                                 <div class="col">
-                                    <div class="field">
-
-
-                                        <div class="control">
+                                        <div>
                                             <br>
                                             <img class="profileImg" src="/files/{{ $profile->photo }}" />
-
                                         </div>
-                                    </div>
                                     <br>
-                                    <div class="field">
-                                        <!-- <label class="label" for="desc">Description</label> -->
-
-                                        <div class="control">
-                                            <textarea readonly class="form-control-plaintext" name="desc" class="textarea" rows=5 placeholder="Description">{{ $profile->desc }}</textarea>
+                                        <div>
+                                            <p>{{ $profile->desc }}</p>
                                         </div>
-                                    </div>
                                     <br>
                                     <div class="field">
                                         <!-- <label class="label" for="influences">Influences</label> -->
-
-                                        <div class="control">
-                                            <textarea readonly class="form-control-plaintext" name="influences" class="textarea" rows=5 placeholder="Influences">{{ $profile->influences }}</textarea>
+                                        <div>
+                                            <p>{{ $profile->influences }}</p>
                                         </div>
                                     </div>
                                     <br>
                                 </div>
                             </div>
-                            
-                        </form>
+                            <br>
+                            <?php foreach ($users as $user) {
+                                    if ($user->id == $profile->id) {
+                                                    echo $user->email;
+                                            }
+                                        }
+                                     ?>
+                        
 
-                        <!-- <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm">Edit Profile</a> -->
+                        <!-- <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm btn-block">Edit Profile</a> -->
 
 
                         <br>
                     </div>
 
-                    <br>
+                    
 
 
                     @endif
