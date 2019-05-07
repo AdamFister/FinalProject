@@ -123,6 +123,15 @@
   color: white;
 }
 
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: purple !important;
+}
 
 /* .row {
   border: 1px solid red;

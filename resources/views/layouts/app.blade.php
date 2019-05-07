@@ -28,12 +28,13 @@
                     Welcome
                 </a> -->
                 <!-- IF NOT SIGNED IN, DON'T DISPLAY SEARCH -->
-                <a class="navbar-brand" href="/login">
-                <img class="logomin" src="/files/images/LocalJam.png">
-                </a>
+                
                 @guest
 
                 @else
+                <a class="navbar-brand" href="/login">
+                <img class="logomin" src="/files/images/LocalJam.png">
+                </a>
                 
                 <a class="navbar-brand" href="/home">
                     My Profile
