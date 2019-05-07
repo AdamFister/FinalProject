@@ -6,10 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <!-- <div class="card-header">{{ __('Login') }}</div> -->
-                <div class="card-header"><strong>Note:</strong> by signing in, you agree to allow your email to be displayed to other users in search results.</div>
+                
+                <div class="card-header link"><strong>Note:</strong> by signing in, you agree to allow your email to be displayed to other users in search results.</div>
 
 
                 <div class="card-body">
+                <div class="center">
+                <img class="logomax" src="/files/images/LocalJam.png">
+                </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -55,12 +59,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-purple">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn link2" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif

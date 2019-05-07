@@ -380,6 +380,15 @@ class UserSeeder extends Seeder
                 'admin' => 0,
                 'approved_at' => now(),
             ]);
+
+            \App\User::create([
+                'name' => 'Chelsea',
+                'email' => 'compton.chelsea@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('testtest'),
+                'admin' => 0,
+                'approved_at' => now(),
+            ]);
         }
     }
 }

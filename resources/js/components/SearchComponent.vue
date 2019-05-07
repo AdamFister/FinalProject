@@ -1,16 +1,15 @@
 <template>
     <div class="container">
 
-                    
-                    <button @click="displayMusicians">Show All</button>
-                    <button @click="displayVocalists">Vocals</button>
-                    <button @click="displayGuitarists">Guitar</button>
-                    <button @click="displayBassists">Bass</button>
-                    <button @click="displayDrummers">Drums</button>
-                    <button @click="displayKeyboardists">Keys</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayMusicians(), activeBtn = 'btn1'" :class="{active: activeBtn === 'btn1' }">Show All</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayVocalists(), activeBtn = 'btn2'" :class="{active: activeBtn === 'btn2' }">Vocals</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayGuitarists(), activeBtn = 'btn3'" :class="{active: activeBtn === 'btn3' }">Guitar</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayBassists(), activeBtn = 'btn4'" :class="{active: activeBtn === 'btn4' }">Bass</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayDrummers(), activeBtn = 'btn5'" :class="{active: activeBtn === 'btn5' }">Drums</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="displayKeyboardists(), activeBtn = 'btn6'" :class="{active: activeBtn === 'btn6' }">Keys</button>
                     <br>
                     <br>
-                    <h2>{{ filter }}</h2>
+                    <h1 class="link">{{ filter }}</h1>
                     <br>
                     
                     <!-- LOOP THROUGH ALL PROFILES -->
@@ -20,7 +19,7 @@
                             <!-- ONLY DISPLAY PROFILES MATCHING SPECIFIED VALUE -->
                             <div v-if="musicianObject.profile_id == profileObject.id">
                             <div class="row">
-                                <div class="col-sm-2"><a :href='"/profiles/" + profileObject.id'>{{ profileObject.nickname }}</a></div> 
+                                <div class="col-sm-2"><a class="link" :href='"/profiles/" + profileObject.id'>{{ profileObject.nickname }}</a></div> 
                                 <div class="col left">
                                 <a :href='"/profiles/" + profileObject.id'><img class="searchImg" :src='"/files/" + profileObject.photo'/></a>
                                 </div>
@@ -34,7 +33,7 @@
                                 <div class="col">{{ profileObject.age }}</div>
                                 <div class="col">{{ profileObject.city }}</div>
                                 <div class="col">{{ profileObject.genre }}</div>
-                                <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-success btn-sm">View Profile</a></div>
+                                <div class="col"><a :href='"/profiles/" + profileObject.id' class="btn btn-purple btn-sm">View Profile</a></div>
                                 
                                 </div>
                                 <pre class="row"> </pre>
@@ -63,7 +62,8 @@
                 talents: [],
                 talentObjects: [],
                 instrumentObjects: [],
-                userObjects: []
+                userObjects: [],
+                activeBtn: 'btn1'
         }
     },
     methods: {

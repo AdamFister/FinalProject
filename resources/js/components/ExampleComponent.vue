@@ -2,22 +2,25 @@
     <div class="container">
         <div class="row">
            
-                    <div class="left">Instruments</div>
+                    <div class="left link">Instruments</div>
                     <br>
                     <br>
                         <div class="container" v-for="talentObject in talentObjects" :key="talentObject.id">
                             <div class="row">
-                            <input readonly class="text" v-model="talentObject.type">
-                                <template v-if="talentObject.isPlayed === 1">
+                                <div v-if="talentObject.isPlayed === 1">
                                     <div class="col right">
-                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger btndeladd">remove</button>
+                                    <button :id="talentObject.id" type="button" @click='deleteInstrument' class="btn-sm btn-danger btndeladd">-</button>
                                     </div>
-                                </template>
-                                <template v-if="talentObject.isPlayed === 0">
+                                </div>
+                                
+                                <div v-if="talentObject.isPlayed === 0">
                                     <div class="col right">
-                                    <button :id="talentObject.id" type="button" @click='addInstrument' class="btn-sm btn-success btndeladd">add</button>
+                                    <button :id="talentObject.id" type="button" @click='addInstrument' class="btn-sm btn-success btndeladd">+</button>
                                     </div>
-                                </template>
+                                </div>
+                                <div class="col">
+                            <p>     {{ talentObject.type }}</p>
+                            </div>
                                 </div>
                         <br>
                     </div>

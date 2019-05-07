@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h1 class='title'>Edit profile</h1>
+                    <h1 class='title link'>Edit profile</h1>
 
                     <!-- PASS ID FROM URL INSTEAD OF SIGNED IN -->
 
@@ -17,7 +17,7 @@
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
                         <div class="field">
-                            <label class="label" for="title">Nickname</label>
+                            <label class="label link" for="title">Nickname</label>
 
                             <div class="control">
                                 <input class="form-control" type="text" class="input" name="nickname" placeholder="nickname" value="{{ $profile->nickname }}">
@@ -26,7 +26,7 @@
 
                         <br>
                         <div class="field">
-                            <label class="label" for="city">City</label>
+                            <label class="label link" for="city">City</label>
 
                             <div class="control">
                                 <input class="form-control" type="text" class="textarea" name="city" placeholder="city" value="{{ $profile->city }}">
@@ -36,7 +36,7 @@
                         
                         
                         <div class="field">
-                            <label class="label" for="age">Age</label>
+                            <label class="label link" for="age">Age</label>
 
                             <div class="control">
                                 <input class="form-control" type="text" class="input" name="age" placeholder="age" value="{{ $profile->age }}">
@@ -47,9 +47,9 @@
 
                             <div class="control">
 
-                                <img class="profileImg" src="/files/{{ $profile->photo }}" />
+                                <img class="editProfileImg" src="/files/{{ $profile->photo }}" />
 
-                                <label>Profile Image</label>
+                                <label class="link">Profile Image</label>
                                 <div class="file-field">
                                     <div class="btn btn-secondary btn-sm float-left">
                                         <input type="file" name="photo">
@@ -60,7 +60,7 @@
                         <br>
                         <div class="field">
                             <br>
-                            <label class="label" for="desc">Description</label>
+                            <label class="label link" for="desc">Introduce yourself!</label>
 
                             <div class="control">
                                 <textarea class="form-control" name="desc" class="textarea" maxlength=250>{{ $profile->desc }}</textarea>
@@ -68,7 +68,7 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="influences">Influences</label>
+                            <label class="label link" for="influences">Musical Influences</label>
 
                             <div class="control">
                                 <textarea class="form-control" name="influences" class="textarea" maxlength=250>{{ $profile->influences }}</textarea>
@@ -76,7 +76,7 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="genre">Music</label>
+                            <label class="label link" for="genre">What genre(s) do you play?</label>
 
                             <div class="control">
                                 <input class="form-control" type="text" class="input" name="genre" placeholder="classic rock" value="{{ $profile->genre }}">
@@ -85,7 +85,7 @@
                         <br>
                         
                         <div class="field">
-                            <label class="label" for="read_write_music">Read/Write Music</label>
+                            <label class="label link" for="read_write_music">10 being the highest, how well do you read/write music?</label>
                             <div class="control">
                                                 <!-- FIX DROPDOWN WIDTH -->
                             <select id="dropdown" class="form-control" type="text" name="read_write_music" class="input">
@@ -107,7 +107,7 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="improvise">Improvise</label>
+                            <label class="label link" for="improvise">10 being the highest, how comfortable are you improvising/jamming?</label>
 
                             <div class="control">
                             <select id="dropdown" class="form-control" type="text" name="improvise" class="input">
@@ -130,7 +130,7 @@
                         </div>
                         <br>
                         <div class="field">
-                            <label class="label" for="ear">Ear</label>
+                            <label class="label link" for="ear">10 being the highest, how is your ear?</label>
 
                             <div class="control">
                             <select id="dropdown" class="form-control" type="text" name="ear" class="input">
@@ -153,7 +153,7 @@
                         <br>
                         <div class="field">
                             <div class="control">
-                                <button type="submit" class="btn btn-primary btn-block">Update profile</button>
+                                <button type="submit" class="btn btn-purple btn-block">Update profile</button>
                             </div>
                         </div>
                     </form>

@@ -8,7 +8,7 @@
             <?php
                     $profile = Auth::user()->profile;
                     ?>
-                <div class="card-header"><h3>{{ $profile->nickname }}</h3></div>
+                <div class="card-header"><h3 class="link">{{ $profile->nickname }}</h3></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -22,10 +22,10 @@
                     <br>
 
                     @if (Auth::user()->admin == 1)
-                    <div>I'm an admin!</div>
+                    <div>Welcome, Administrator</div>
                     <br>
-                    <a class="btn btn-info" href="/users">Users Page</a>
-                    <a class="btn btn-info" href="/profiles">Profiles Page</a>
+                    <a class="btn btn-purple" href="/users">Users Page</a>
+                    <a class="btn btn-purple" href="/profiles">Profiles Page</a>
 
 
 
@@ -56,11 +56,13 @@
                                     <br>
                                     <div>
                                         <!-- <label class="label" for="city">City</label> -->
+                                        <h5><p class="link">City:</p></h5>
                                             <p>{{ $profile->city }}</p>
                                     </div>
                                     
                                     <!-- Instruments: -->
                                     <br>
+                                    <h5><p class="link">Talents:</p></h5>
                                     <?php foreach ($talents as $talent) {
                                         foreach ($instruments as $instrument)
                                             if ($talent->profile_id == $profile->id) {
@@ -76,6 +78,7 @@
                                         <label class="label" for="age">Age</label> -->
 
                                         <div>
+                                        <h5><p class="link">Age:</p></h5>
                                             <p> {{ $profile->age }} </p>
                                         </div>
                                     <!-- </div> -->
@@ -84,13 +87,14 @@
                                         <!-- <label class="label" for="genre">Music</label> -->
 
                                         <div>
+                                        <h5><p class="link">My musical styles:</p></h5>
                                             <p> {{ $profile->genre }} </p>
                                         </div>
                                     <!-- </div> -->
                                     <br>
                                     <br>
                                     <div class="field">
-                                        <label class="label" for="read_write_music">Read/Write Music</label>
+                                    <h5><label class="label link" for="read_write_music">Read/Write Music</label></h5>
 
                                         <div class="control">
                                             <input readonly class="form-control-plaintext" type="text" class="input" name="read_write_music" placeholder="1 to 10" value="{{ $profile->read_write_music }}">
@@ -98,7 +102,7 @@
                                     </div>
                                     <br>
                                     <div class="field">
-                                        <label class="label" for="improvise">Improvise</label>
+                                    <h5><label class="label link" for="improvise">Improvise</label></h5>
 
                                         <div class="control">
                                             <input readonly class="form-control-plaintext" type="text" class="input" name="improvise" placeholder="1 to 10" value="{{ $profile->improvise }}">
@@ -106,7 +110,7 @@
                                     </div>
                                     <br>
                                     <div class="field">
-                                        <label class="label" for="ear">Ear</label>
+                                    <h5><label class="label link" for="ear">Ear</label></h5>
 
                                         <div class="control">
                                             <input readonly class="form-control-plaintext" type="text" class="input" name="ear" placeholder="1 to 10" value="{{ $profile->ear }}">
@@ -121,12 +125,14 @@
                                         </div>
                                     <br>
                                         <div>
+                                        <h5 class="link"><p>About Me:</p></h5>
                                             <p>{{ $profile->desc }}</p>
                                         </div>
                                     <br>
                                     <div class="field">
                                         <!-- <label class="label" for="influences">Influences</label> -->
                                         <div>
+                                        <h5 class="link"><p>Musical Influences:</p></h5>
                                             <p>{{ $profile->influences }}</p>
                                         </div>
                                     </div>
@@ -136,7 +142,7 @@
                             <br>
                         </form>
 
-                        <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-success btn-sm btn-block">Edit Profile</a>
+                        <a href="/profiles/{{ $profile->id }}/edit" class="btn btn-purple btn-sm btn-block">Edit Profile</a>
 
 
                         <br>

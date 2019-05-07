@@ -1792,6 +1792,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -1916,7 +1919,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -1933,7 +1935,8 @@ __webpack_require__.r(__webpack_exports__);
       talents: [],
       talentObjects: [],
       instrumentObjects: [],
-      userObjects: []
+      userObjects: [],
+      activeBtn: 'btn1'
     };
   },
   methods: {
@@ -37352,7 +37355,7 @@ var render = function() {
       "div",
       { staticClass: "row" },
       [
-        _c("div", { staticClass: "left" }, [_vm._v("Instruments")]),
+        _c("div", { staticClass: "left link" }, [_vm._v("Instruments")]),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
@@ -37360,66 +37363,43 @@ var render = function() {
         _vm._v(" "),
         _vm._l(_vm.talentObjects, function(talentObject) {
           return _c("div", { key: talentObject.id, staticClass: "container" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: talentObject.type,
-                      expression: "talentObject.type"
-                    }
-                  ],
-                  staticClass: "text",
-                  attrs: { readonly: "" },
-                  domProps: { value: talentObject.type },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(talentObject, "type", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                talentObject.isPlayed === 1
-                  ? [
-                      _c("div", { staticClass: "col right" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-sm btn-danger btndeladd",
-                            attrs: { id: talentObject.id, type: "button" },
-                            on: { click: _vm.deleteInstrument }
-                          },
-                          [_vm._v("remove")]
-                        )
-                      ])
-                    ]
-                  : _vm._e(),
-                _vm._v(" "),
-                talentObject.isPlayed === 0
-                  ? [
-                      _c("div", { staticClass: "col right" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-sm btn-success btndeladd",
-                            attrs: { id: talentObject.id, type: "button" },
-                            on: { click: _vm.addInstrument }
-                          },
-                          [_vm._v("add")]
-                        )
-                      ])
-                    ]
-                  : _vm._e()
-              ],
-              2
-            ),
+            _c("div", { staticClass: "row" }, [
+              talentObject.isPlayed === 1
+                ? _c("div", [
+                    _c("div", { staticClass: "col right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-danger btndeladd",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.deleteInstrument }
+                        },
+                        [_vm._v("-")]
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              talentObject.isPlayed === 0
+                ? _c("div", [
+                    _c("div", { staticClass: "col right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-success btndeladd",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.addInstrument }
+                        },
+                        [_vm._v("+")]
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("p", [_vm._v("     " + _vm._s(talentObject.type))])
+              ])
+            ]),
             _vm._v(" "),
             _c("br")
           ])
@@ -37455,29 +37435,95 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("button", { on: { click: _vm.displayMusicians } }, [
-        _vm._v("Show All")
-      ]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn1" },
+          on: {
+            click: function($event) {
+              _vm.displayMusicians(), (_vm.activeBtn = "btn1")
+            }
+          }
+        },
+        [_vm._v("Show All")]
+      ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayVocalists } }, [_vm._v("Vocals")]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn2" },
+          on: {
+            click: function($event) {
+              _vm.displayVocalists(), (_vm.activeBtn = "btn2")
+            }
+          }
+        },
+        [_vm._v("Vocals")]
+      ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayGuitarists } }, [
-        _vm._v("Guitar")
-      ]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn3" },
+          on: {
+            click: function($event) {
+              _vm.displayGuitarists(), (_vm.activeBtn = "btn3")
+            }
+          }
+        },
+        [_vm._v("Guitar")]
+      ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayBassists } }, [_vm._v("Bass")]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn4" },
+          on: {
+            click: function($event) {
+              _vm.displayBassists(), (_vm.activeBtn = "btn4")
+            }
+          }
+        },
+        [_vm._v("Bass")]
+      ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayDrummers } }, [_vm._v("Drums")]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn5" },
+          on: {
+            click: function($event) {
+              _vm.displayDrummers(), (_vm.activeBtn = "btn5")
+            }
+          }
+        },
+        [_vm._v("Drums")]
+      ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.displayKeyboardists } }, [
-        _vm._v("Keys")
-      ]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn6" },
+          on: {
+            click: function($event) {
+              _vm.displayKeyboardists(), (_vm.activeBtn = "btn6")
+            }
+          }
+        },
+        [_vm._v("Keys")]
+      ),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("h2", [_vm._v(_vm._s(_vm.filter))]),
+      _c("h1", { staticClass: "link" }, [_vm._v(_vm._s(_vm.filter))]),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
@@ -37493,7 +37539,10 @@ var render = function() {
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c(
                           "a",
-                          { attrs: { href: "/profiles/" + profileObject.id } },
+                          {
+                            staticClass: "link",
+                            attrs: { href: "/profiles/" + profileObject.id }
+                          },
                           [_vm._v(_vm._s(profileObject.nickname))]
                         )
                       ]),
@@ -37563,7 +37612,7 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-success btn-sm",
+                            staticClass: "btn btn-purple btn-sm",
                             attrs: { href: "/profiles/" + profileObject.id }
                           },
                           [_vm._v("View Profile")]

@@ -351,6 +351,16 @@ class TalentSeeder extends Seeder
                 'profile_id' => 42,
                 'instrument_id' => 5,
             ]);
+
+            \App\Talent::create([
+                'profile_id' => 43,
+                'instrument_id' => 3,
+            ]);
+
+            \App\Talent::create([
+                'profile_id' => 43,
+                'instrument_id' => 5,
+            ]);
         }
     }
 }

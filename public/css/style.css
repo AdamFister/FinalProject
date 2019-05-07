@@ -3,6 +3,11 @@
     height: auto;
 }
 
+.editProfileImg {
+  max-width: 50%;
+  height: auto;
+}
+
 .searchImg {
     max-width: 80%;
     min-width: 15px;
@@ -18,17 +23,86 @@
   text-align: right;
 }
 
+.center {
+  text-align: center;
+}
+
 .btndeladd {
-  min-width: 100px;
+  min-width: 30px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .logomin {
   max-height: 75px;
 }
 
+.logomax {
+  max-width: 85%;
+}
+
 #dropdown {
   width: 100px;
 }
+
+.link {
+  color: purple !important;
+}
+
+.link2 {
+  color: purple !important;
+}
+
+.link2:hover {
+  color: purple !important;
+  text-decoration: underline !important;
+}
+
+.btn-purple {
+  background-color: purple;
+  color: white;
+}
+
+.btn-purple:hover {
+  color: purple;
+  background-color: white;
+  border-color: purple;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active, .btn-purple:not(:disabled):not(.disabled).active, .show > .btn-purple.dropdown-toggle {
+  color: white;
+  background-color: purple;
+  border-color: purple;
+}
+
+.btn-outline-dark {
+  border-color: purple;
+  color: purple;
+}
+
+.btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
+  color: #fff;
+  background-color: purple;
+  border-color: purple;
+}
+
+.btn-outline-dark:hover {
+  color: #fff;
+  background-color: purple;
+  border-color: purple;
+}
+
+.navbar-brand:hover {
+  color: purple !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: purple !important;
+}
+
 
 /* .row {
   border: 1px solid red;
