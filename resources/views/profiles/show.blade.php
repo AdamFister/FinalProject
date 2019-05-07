@@ -18,13 +18,7 @@
 
                     <br>
 
-                    @if (Auth::user()->admin == 1)
-                    <div>Welcome, Administrator</div>
-                    <br>
-                    <a class="btn btn-purple" href="/users">Users Page</a>
-                    <a class="btn btn-purple" href="/profiles">Profiles Page</a>
-
-                    @else
+                    
 
                 <!-- HOW TO PASS ID FROM URL CLICKED ON SEARCH PAGE TO HERE -->
 
@@ -130,7 +124,6 @@
                     
 
 
-                    @endif
 
 
 

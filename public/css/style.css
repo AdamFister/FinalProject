@@ -103,6 +103,26 @@
   background-color: purple !important;
 }
 
+.odd:nth-child(odd){
+  background: rgba(221, 221, 221, 0.555)
+}
+
+.even:nth-child(even){
+  background: rgba(221, 221, 221, 0.555)
+}
+
+.shaded {
+  background: rgba(128, 0, 128, 0.63);
+}
+
+.shadedSearch {
+  background: rgba(221, 221, 221, 0.555);
+}
+
+.white {
+  color: white;
+}
+
 
 /* .row {
   border: 1px solid red;

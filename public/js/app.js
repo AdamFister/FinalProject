@@ -1919,6 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     profileid: {
@@ -37535,7 +37536,7 @@ var render = function() {
             return _c("div", { key: musicianObject.id }, [
               musicianObject.profile_id == profileObject.id
                 ? _c("div", [
-                    _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "row shadedSearch" }, [
                       _c("div", { staticClass: "col-sm-2" }, [
                         _c(
                           "a",

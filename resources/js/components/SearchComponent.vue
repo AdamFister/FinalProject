@@ -13,12 +13,13 @@
                     <br>
                     
                     <!-- LOOP THROUGH ALL PROFILES -->
-                        <div v-for="profileObject in profileObjects" :key="profileObject.id">
+                        <div v-for="(profileObject) in profileObjects" :key="profileObject.id">
                             <!-- LOOP THROUGH MUSICIANS FROM CREATED OBJECT ONLY CONTAINING PROFILES MATCHING SPECIFIED VALUES -->
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
                             <!-- ONLY DISPLAY PROFILES MATCHING SPECIFIED VALUE -->
                             <div v-if="musicianObject.profile_id == profileObject.id">
-                            <div class="row">
+                            <!-- <div :class="rowColor(index)"> -->
+                                <div class="row shadedSearch">
                                 <div class="col-sm-2"><a class="link" :href='"/profiles/" + profileObject.id'>{{ profileObject.nickname }}</a></div> 
                                 <div class="col left">
                                 <a :href='"/profiles/" + profileObject.id'><img class="searchImg" :src='"/files/" + profileObject.photo'/></a>
@@ -185,7 +186,15 @@
                     .catch(function(error) {
                         console.log(error);
                     });
-        }
+        },
+
+        // rowColor(index) {
+        //     if (index % 2 === 0) {
+        //         return "row";
+        //     } else {
+        //         return "row shadedSearch";
+        //     }
+        // }
     },
 
     mounted() {
