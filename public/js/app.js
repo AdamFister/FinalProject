@@ -1779,10 +1779,285 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    profileid: {
+      type: Number
+    }
+  },
+  data: function data() {
+    return {
+      instruments: [],
+      talents: [],
+      talentObjects: []
+    };
+  },
+  methods: {
+    displayInstruments: function displayInstruments() {
+      var _this = this;
+
+      axios.all([axios.get('/all'), axios.get('/played/' + this.profileid)]).then(axios.spread(function (firstResponse, secondResponse) {
+        _this.instruments = firstResponse.data;
+        _this.talents = secondResponse.data;
+
+        for (var i in _this.instruments) {
+          _this.talentObjects.push(_this.instruments[i]);
+        }
+
+        for (var _i in _this.talentObjects) {
+          for (var j in _this.talents) {
+            if (_this.talentObjects[_i].id == _this.talents[j].instrument_id) {
+              // console.log("TalentObjects: " + this.talentObjects[i].id);
+              // console.log("talents: " + this.talents[j].instrument_id);
+              _this.talentObjects[_i].isPlayed = 1;
+            }
+          }
+        }
+      }))["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    addInstrument: function addInstrument(e) {
+      var _this2 = this;
+
+      axios.get('/add/' + this.profileid + '/' + e.target.id).then(function (response) {
+        _this2.instruments = [];
+        _this2.talents = [];
+        _this2.talentObjects = [];
+
+        _this2.displayInstruments();
+      });
+    },
+    deleteInstrument: function deleteInstrument(e) {
+      var _this3 = this;
+
+      axios.get('/delete/' + this.profileid + '/' + e.target.id).then(function (response) {
+        _this3.instruments = [];
+        _this3.talents = [];
+        _this3.talentObjects = [];
+
+        _this3.displayInstruments();
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
-  }
+    this.displayInstruments();
+  },
+  computed: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SearchComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    profileid: {
+      type: Number
+    }
+  },
+  data: function data() {
+    return {
+      profileObjects: [],
+      profiles: [],
+      musicianObjects: [],
+      musicians: [],
+      filter: "",
+      talents: [],
+      talentObjects: [],
+      instrumentObjects: [],
+      userObjects: [],
+      activeBtn: 'btn1'
+    };
+  },
+  methods: {
+    allProfiles: function allProfiles() {
+      var _this = this;
+
+      axios.get('/allProfiles').then(function (response) {
+        console.log("ALLPROFILES");
+        _this.profileObjects = response.data; // for (let i in this.profiles) {
+        //         this.profileObjects.push(this.profiles[i]);
+        //             }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displaySearchInstruments: function displaySearchInstruments() {
+      var _this2 = this;
+
+      this.talentObjects = [];
+      axios.get('/getTalents').then(function (response) {
+        _this2.talentObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInstrumentObjects: function getInstrumentObjects() {
+      var _this3 = this;
+
+      this.instrumentObjects = [];
+      axios.get('/getInstruments').then(function (response) {
+        _this3.instrumentObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayMusicians: function displayMusicians() {
+      var _this4 = this;
+
+      this.filter = "All";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/uniqueTalents').then(function (response) {
+        _this4.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayVocalists: function displayVocalists() {
+      var _this5 = this;
+
+      this.filter = "Vocalists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/vocalists').then(function (response) {
+        _this5.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayGuitarists: function displayGuitarists() {
+      var _this6 = this;
+
+      this.filter = "Guitarists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/guitarists').then(function (response) {
+        _this6.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayBassists: function displayBassists() {
+      var _this7 = this;
+
+      this.filter = "Bassists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/bassists').then(function (response) {
+        _this7.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayDrummers: function displayDrummers() {
+      var _this8 = this;
+
+      this.filter = "Drummers";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/drummers').then(function (response) {
+        _this8.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    displayKeyboardists: function displayKeyboardists() {
+      var _this9 = this;
+
+      this.filter = "Keyboardists";
+      this.musicianObjects = [];
+      this.musicians = [];
+      this.displaySearchInstruments();
+      axios.get('/keyboardists').then(function (response) {
+        _this9.musicianObjects = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.allProfiles();
+    this.displayMusicians();
+    this.getInstrumentObjects();
+  },
+  computed: {}
 });
 
 /***/ }),
@@ -37076,32 +37351,289 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "left link" }, [_vm._v("Instruments")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _vm._l(_vm.talentObjects, function(talentObject) {
+          return _c("div", { key: talentObject.id, staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              talentObject.isPlayed === 1
+                ? _c("div", [
+                    _c("div", { staticClass: "col right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-danger btndeladd",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.deleteInstrument }
+                        },
+                        [_vm._v("-")]
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              talentObject.isPlayed === 0
+                ? _c("div", [
+                    _c("div", { staticClass: "col right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-success btndeladd",
+                          attrs: { id: talentObject.id, type: "button" },
+                          on: { click: _vm.addInstrument }
+                        },
+                        [_vm._v("+")]
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("p", [_vm._v("     " + _vm._s(talentObject.type))])
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
+            _c("br")
           ])
-        ])
-      ])
-    ])
-  }
-]
+        })
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn1" },
+          on: {
+            click: function($event) {
+              _vm.displayMusicians(), (_vm.activeBtn = "btn1")
+            }
+          }
+        },
+        [_vm._v("Show All")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn2" },
+          on: {
+            click: function($event) {
+              _vm.displayVocalists(), (_vm.activeBtn = "btn2")
+            }
+          }
+        },
+        [_vm._v("Vocals")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn3" },
+          on: {
+            click: function($event) {
+              _vm.displayGuitarists(), (_vm.activeBtn = "btn3")
+            }
+          }
+        },
+        [_vm._v("Guitar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn4" },
+          on: {
+            click: function($event) {
+              _vm.displayBassists(), (_vm.activeBtn = "btn4")
+            }
+          }
+        },
+        [_vm._v("Bass")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn5" },
+          on: {
+            click: function($event) {
+              _vm.displayDrummers(), (_vm.activeBtn = "btn5")
+            }
+          }
+        },
+        [_vm._v("Drums")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark btn-lesson",
+          class: { active: _vm.activeBtn === "btn6" },
+          on: {
+            click: function($event) {
+              _vm.displayKeyboardists(), (_vm.activeBtn = "btn6")
+            }
+          }
+        },
+        [_vm._v("Keys")]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("h1", { staticClass: "link" }, [_vm._v(_vm._s(_vm.filter))]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _vm._l(_vm.profileObjects, function(profileObject) {
+        return _c(
+          "div",
+          { key: profileObject.id },
+          _vm._l(_vm.musicianObjects, function(musicianObject) {
+            return _c("div", { key: musicianObject.id }, [
+              musicianObject.profile_id == profileObject.id
+                ? _c("div", [
+                    _c("div", { staticClass: "row shadedSearch" }, [
+                      _c("div", { staticClass: "col-sm-2" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "link",
+                            attrs: { href: "/profiles/" + profileObject.id }
+                          },
+                          [_vm._v(_vm._s(profileObject.nickname))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col left" }, [
+                        _c(
+                          "a",
+                          { attrs: { href: "/profiles/" + profileObject.id } },
+                          [
+                            _c("img", {
+                              staticClass: "searchImg",
+                              attrs: { src: "/files/" + profileObject.photo }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col" },
+                        _vm._l(_vm.talentObjects, function(talentTableObject) {
+                          return _c("div", { key: talentTableObject.id }, [
+                            talentTableObject.profile_id == profileObject.id
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.instrumentObjects, function(
+                                    instrumentObject
+                                  ) {
+                                    return _c(
+                                      "div",
+                                      { key: instrumentObject.id },
+                                      [
+                                        talentTableObject.instrument_id ==
+                                        instrumentObject.id
+                                          ? _c("div", [
+                                              _c("div", [
+                                                _vm._v(
+                                                  _vm._s(instrumentObject.type)
+                                                )
+                                              ])
+                                            ])
+                                          : _vm._e()
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ])
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.age))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.city))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _vm._v(_vm._s(profileObject.genre))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-purple btn-sm",
+                            attrs: { href: "/profiles/" + profileObject.id }
+                          },
+                          [_vm._v("View Profile")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("pre", { staticClass: "row" }, [_vm._v(" ")])
+                  ])
+                : _vm._e()
+            ])
+          }),
+          0
+        )
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49270,6 +49802,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('search-component', __webpack_require__(/*! ./components/SearchComponent.vue */ "./resources/js/components/SearchComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49404,6 +49937,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchComponent.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/SearchComponent.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchComponent.vue?vue&type=template&id=89b0c3cc& */ "./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc&");
+/* harmony import */ var _SearchComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SearchComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/SearchComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SearchComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SearchComponent.vue?vue&type=template&id=89b0c3cc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchComponent.vue?vue&type=template&id=89b0c3cc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchComponent_vue_vue_type_template_id_89b0c3cc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

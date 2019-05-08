@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\NewUser;
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +65,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    
+        $admin = User::where('admin', 1)->first();
+        if ($admin) {
+            $admin->notify(new NewUser($user));
+        }
+    
+        $profile = Profile::create([
+            'nickname' => $user['name'],
+            'user_id' => $user['id']
+        ]);
+
+        return $user;
     }
 }
