@@ -9,6 +9,16 @@ use Auth;
 
 class ProfileController extends Controller
 {
+
+        /* The below routes to the login page
+    * in the event of a timeout or non logged in user
+    *accessing any of the below pages*/
+   public function __construct()
+   {
+       $this->middleware('auth');
+   }
+
+   
     /**
      * Display a listing of the resource.
      *
