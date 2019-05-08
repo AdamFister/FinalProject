@@ -581,7 +581,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'jazz/swing',
                 'city' => 'Lexington, KY',
                 'age' => '26',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'If I\'m going to sing like someone else, then I don\'t need to sing at all.',
                 'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'read_write_music' => '8',
                 'improvise' => '8',
