@@ -23,12 +23,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '28',
-                'desc' => 'And I said:
-                No no no no, I don\'t smoke it no more
-                I\'m tired of waking up on the floor
-                No, thank you, please,
-                It only makes me sneeze
-                And then it makes it hard to find the door',
+                'desc' => 'First and foremost I am a drummer. After that, I\'m other things... But I didn\'t play drums to make money.',
                 'influences' => 'Elvis, Bob Dylan, Gene Autry, Lee Dorsey, country, jazz',
                 'read_write_music' => '6',
                 'improvise' => '7',
@@ -42,13 +37,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '35',
-                'desc' => 'Open up your mind and let me step inside
-                Rest your weary head and let your heart decide
-                It\'s so easy when you know the rules
-                It\'s so easy all you have to do
-                Is fall in love
-                Play the game
-                Everybody play the game of love',
+                'desc' => 'When I\'m dead, I want to be remembered as a musician of some worth and substance.',
                 'influences' => 'Cream, Jimi Hendrix, blues-based rock',
                 'read_write_music' => '9',
                 'improvise' => '7',
@@ -62,14 +51,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '25',
-                'desc' => 'Sunrise doesn\'t last all morning
-                A cloudburst doesn\'t last all day 
-                Seems my love is up 
-                And has left you with no warning 
-                But it\'s not always going 
-                To be this grey
-                All things must pass
-                All things must pass away',
+                'desc' => 'I\'m the kind of person who would love to play whenever I felt like, with a band, and it might as well be the Holiday Inn in Nebraska - somewhere where no one knows you, and you\'re in a band situation just playing music.',
                 'influences' => 'Buddy Holly, Carl Perkins, Elvis, Ravi Shankar, R&B, rock, rockabilly',
                 'read_write_music' => '6',
                 'improvise' => '7',
@@ -83,12 +65,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '26',
-                'desc' => 'Someone\'s knockin\' at the door
-                Somebody\'s ringin\' the bell
-                Someone\'s knockin\' at the door
-                Somebody\'s ringin\' the bell
-                Do me a favor
-                Open the door and let \'em in',
+                'desc' => 'One of my biggest thrills for me still is sitting down with a guitar or a piano and just out of nowhere trying to make a song happen.',
                 'influences' => 'Chuck Berry, Eddie Cochran, Little Richard, Gene Vincent, Sam Cooke',
                 'read_write_music' => '6',
                 'improvise' => '7',
@@ -102,11 +79,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '28',
-                'desc' => 'Ev\'rybody\'s talking about
-                Bagism, Shagism, Dragism, Madism, Ragism, Tagism
-                This-ism, that-ism, is-m, is-m, is-m
-                All we are saying is give peace a chance
-                All we are saying is give peace a chance',
+                'desc' => 'My role in society, or any artist\'s or poet\'s role, is to try and express what we all feel. Not to tell people how to feel. Not as a preacher, not as a leader, but as a reflection of us all.',
                 'influences' => 'The Shadows, Jerry Lee Lewis, the Shirelles, Elvis, Smokey Robinson, Bob Dylan',
                 'read_write_music' => '6',
                 'improvise' => '7',
@@ -134,12 +107,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock, world music',
                 'city' => 'Lexington, KY',
                 'age' => '33',
-                'desc' => 'Mephistopheles is not your name
-                I know what you\'re up to just the same
-                I will listen hard to your tuition
-                You will see it come to its fruition
-                I\'ll be wrapped around your finger
-                I\'ll be wrapped around your finger',
+                'desc' => 'I exist in a state of almost perpetual hysteria.',
                 'influences' => 'Steve Winwood, Peter Gabriel, Joni Mitchell, Paul Simon, Steely Dan',
                 'read_write_music' => '7',
                 'improvise' => '7',
@@ -153,15 +121,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'jazz fusion',
                 'city' => 'Lexington, KY',
                 'age' => '24',
-                'desc' => 'Come on, come over
-                The pleasure is all mine
-                Music\'s playin\', the door just opened
-                You don\'t have to stand in line
-                People of the world
-                Have been uptight far too long
-                While you\'re busy making stands
-                Everybody\'s making plans
-                To move on, move right along',
+                'desc' => 'Music is the only thing keeping the planet together.',
                 'influences' => 'Charlie Parker, John Coltrane, Cannonball Adderley, Max Roach, Paul Bley',
                 'read_write_music' => '9',
                 'improvise' => '10',
@@ -175,18 +135,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'hard rock',
                 'city' => 'Lexington, KY',
                 'age' => '26',
-                'desc' => 'Flea!
-                Flea!
-                Flea fly!
-                Flea fly!
-                Flea fly flo!
-                Flea fly flo!
-                Beestay!
-                Beestay!
-                A koomalada koomalada koomalada beestay!
-                A koomalada koomalada koomalada beestay!
-                Oh no no no not the beestay!
-                Oh no no no not the beestay!',
+                'desc' => 'Anything worth doing good takes a little chaos.',
                 'influences' => 'Jaco Pastorius, Miles Davis, Duke Ellington, Charlie Parker, Louis Armstrong, John Coltrane, Dizzy Gillespie, Black Flag, David Bowie, Defunkt, Neil Young',
                 'read_write_music' => '8',
                 'improvise' => '9',
@@ -200,11 +149,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'jazz fusion',
                 'city' => 'Lexington, KY',
                 'age' => '33',
-                'desc' => 'My name is Victa, and I\'m a winner and I know what I\'m talkin\'
-                About
-                And just \'cause I come out on top don\'t mean I\'m leaving U out
-                I\'m a trickster but not a sinner and U may not agree
-                Before U start to criticize, are U talkin\' \'bout U or me?',
+                'desc' => 'Never lose the groove in order to find a note.',
                 'influences' => 'James Brown, Super Fly-era Curtis Mayfield, Stanley Clarke, Sly & the Family Stone "Thank You", Jaco Pastorius with Weather Report and as a solo artist',
                 'read_write_music' => '9',
                 'improvise' => '10',
@@ -218,7 +163,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'funk metal',
                 'city' => 'Lexington, KY',
                 'age' => '29',
-                'desc' => 'My name is Mud.',
+                'desc' => 'The bass is just the crayon that I picked out of the box. I\'d probably be writing similar stuff if I played guitar or trumpet. The pictures I want to draw I do with this crayon I chose, which is the bass.',
                 'influences' => 'Larry Graham, Chris Squire, Tony Levin, Roger Waters, Geddy Lee, Paul McCartney, Geezer Butler, Bootsy Collins, Stanley Clarke, John Paul Jones, and the Residents',
                 'read_write_music' => '9',
                 'improvise' => '8',
@@ -232,10 +177,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'new wave/art rock',
                 'city' => 'Lexington, KY',
                 'age' => '27',
-                'desc' => 'What you gonna do when you get out of jail?
-                I\'m gonna have some fun
-                What do you consider fun?
-                Fun, natural fun',
+                'desc' => 'We groove off of everything, any sort of live show. The inner dialogue you\'re having with yourself, between you and the music, is for me the search for God.',
                 'influences' => 'Donald “Duck” Dunn, James Jamerson',
                 'read_write_music' => '8',
                 'improvise' => '8',
@@ -347,7 +289,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock, blues, folk, punk',
                 'city' => 'Lexington, KY',
                 'age' => '29',
-                'desc' => 'I dabbled in things like Howlin\' Wolf, Cream and Led Zeppelin, but when I heard Son House and Robert Johnson, it blew my mind. It was something I\'d been missing my whole life. That music made me discard everything else and just get down to the soul and honesty of the blues.',
+                'desc' => 'When I heard Son House and Robert Johnson, it blew my mind. It was something I\'d been missing my whole life. That music made me discard everything else and just get down to the soul and honesty of the blues.',
                 'influences' => 'Son House, Robert Johnson, The Sonics, Son House, Blind Willie Tell, Skip James, The Monks, The Rats, Bob Dylan, The Gories, The Stooges, The Gun Club',
                 'read_write_music' => '8',
                 'improvise' => '9',
@@ -406,9 +348,7 @@ class ProfileSeeder extends Seeder
                 'desc' => 'Gonna see some good times
                 Gonna get to ring that bell
                 Gonna see some good times
-                Some times to make up for when I\'m not feeling well
-                I must be due some great times
-                \'Cause right now I feel like hell',
+                Some times to make up for when I\'m not feeling well',
                 'influences' => 'Lee Michaels, Ray Manzarek, Goldy McJohn',
                 'read_write_music' => '8',
                 'improvise' => '10',
@@ -575,14 +515,14 @@ class ProfileSeeder extends Seeder
             ]);
 
             \App\Profile::create([
-                'nickname' => 'Billie H',
+                'nickname' => 'Lady Day',
                 'user_id' => 37,
                 'photo' => 'images/mCLg4zp9gN0g3rU1p8tK5CgvA71OS0QSF8ofpmNU.jpeg',
                 'genre' => 'jazz/swing',
                 'city' => 'Lexington, KY',
                 'age' => '26',
                 'desc' => 'If I\'m going to sing like someone else, then I don\'t need to sing at all.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'influences' => 'Louis Armstrong, Bessie Smith',
                 'read_write_music' => '8',
                 'improvise' => '8',
                 'ear' => '9',
@@ -595,8 +535,8 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock, blues, soul',
                 'city' => 'Lexington, KY',
                 'age' => '31',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'In the end, I don\'t think you can find soul. Soul finds you.',
+                'influences' => 'Ray Charles and Lonnie Donegan',
                 'read_write_music' => '6',
                 'improvise' => '7',
                 'ear' => '8',
@@ -609,8 +549,8 @@ class ProfileSeeder extends Seeder
                 'genre' => 'funk/soul/r&b',
                 'city' => 'Lexington, KY',
                 'age' => '33',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'Hair is the first thing. And teeth the second. Hair and teeth. A man got those two things he\'s got it all.',
+                'influences' => 'classic blues, gospel, and African-American folk music, Louis Jordan',
                 'read_write_music' => '7',
                 'improvise' => '9',
                 'ear' => '9',
@@ -623,8 +563,8 @@ class ProfileSeeder extends Seeder
                 'genre' => 'new wave',
                 'city' => 'Lexington, KY',
                 'age' => '22',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'Showtime, Synergy!',
+                'influences' => 'The Archies, The Monkees',
                 'read_write_music' => '9',
                 'improvise' => '8',
                 'ear' => '10',
@@ -637,8 +577,8 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '31',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'I\'m not a singer who plays a bit of drums. I\'m a drummer that sings a bit.',
+                'influences' => 'Ringo Starr, Buddy Rich, the Action, Motown and Stax records',
                 'read_write_music' => '9',
                 'improvise' => '8',
                 'ear' => '9',
@@ -651,8 +591,8 @@ class ProfileSeeder extends Seeder
                 'genre' => 'soul, blues, gospel, country, r&b',
                 'city' => 'Lexington, KY',
                 'age' => '33',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'influences' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'desc' => 'Music\'s been around a long time, and there\'s going to be music long after Ray Charles is dead. I just want to make my mark, leave something musically good behind. If it\'s a big record, that\'s the frosting on the cake, but music\'s the main meal.',
+                'influences' => 'Nat King Cole, Louis Jordan, Charles Brown',
                 'read_write_music' => '9',
                 'improvise' => '9',
                 'ear' => '8',

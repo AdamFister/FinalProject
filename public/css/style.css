@@ -4,13 +4,13 @@
 }
 
 .editProfileImg {
-  max-width: 50%;
+  max-width: 75%;
   height: auto;
 }
 
 .searchImg {
     max-width: 80%;
-    min-width: 15px;
+    min-width: 25%;
     height: auto;
     padding-top: 5%;
 }
