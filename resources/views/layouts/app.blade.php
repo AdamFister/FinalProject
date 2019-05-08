@@ -19,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -35,7 +37,7 @@
                 <a class="navbar-brand" href="/login">
                 <img class="logomin" src="/files/images/LocalJam.png">
                 </a>
-                
+
                 <a class="navbar-brand" href="/home">
                     My Profile
                 </a>
