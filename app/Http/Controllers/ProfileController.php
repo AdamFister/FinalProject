@@ -36,7 +36,7 @@ class ProfileController extends Controller
     public function getAllProfiles()
     {
 
-        return Profile::all();
+        return Profile::orderBy('nickname', 'asc')->get();
 
     }
 

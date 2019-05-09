@@ -1,18 +1,18 @@
 <template>
     <div class="container">
 
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayMusicians(), activeBtn = 'btn1'" :class="{active: activeBtn === 'btn1' }">Show All</button>
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayVocalists(), activeBtn = 'btn2'" :class="{active: activeBtn === 'btn2' }">Vocals</button>
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayGuitarists(), activeBtn = 'btn3'" :class="{active: activeBtn === 'btn3' }">Guitar</button>
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayBassists(), activeBtn = 'btn4'" :class="{active: activeBtn === 'btn4' }">Bass</button>
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayDrummers(), activeBtn = 'btn5'" :class="{active: activeBtn === 'btn5' }">Drums</button>
-                    <button class="btn btn-outline-dark btn-lesson" @click="displayKeyboardists(), activeBtn = 'btn6'" :class="{active: activeBtn === 'btn6' }">Keys</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createMusicianObjects(), activeBtn = 'btn1'" :class="{active: activeBtn === 'btn1' }">Show All</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createVocalistObjects(), activeBtn = 'btn2'" :class="{active: activeBtn === 'btn2' }">Vocals</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createGuitaristObjects(), activeBtn = 'btn3'" :class="{active: activeBtn === 'btn3' }">Guitar</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createBassistObjects(), activeBtn = 'btn4'" :class="{active: activeBtn === 'btn4' }">Bass</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createDrummerObjects(), activeBtn = 'btn5'" :class="{active: activeBtn === 'btn5' }">Drums</button>
+                    <button class="btn btn-outline-dark btn-lesson" @click="createKeyboardistObjects(), activeBtn = 'btn6'" :class="{active: activeBtn === 'btn6' }">Keys</button>
                     <br>
                     <br>
                     <h1 class="link">{{ filter }}</h1>
                     <br>
                     
-                    <!-- LOOP THROUGH ALL PROFILES -->
+                    <!-- LOOP THROUGH ALL PROFILE OBJECTS -->
                         <div v-for="(profileObject) in profileObjects" :key="profileObject.id">
                             <!-- LOOP THROUGH MUSICIANS FROM CREATED OBJECT ONLY CONTAINING PROFILES MATCHING SPECIFIED VALUES -->
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
@@ -25,10 +25,10 @@
                                 <a :href='"/profiles/" + profileObject.id'><img class="searchImg" :src='"/files/" + profileObject.photo'/></a>
                                 </div>
                                 <div class="col">
-                                <div v-for="talentTableObject in talentObjects" :key="talentTableObject.id">
-                                    <div v-if="talentTableObject.profile_id == profileObject.id">
+                                <div v-for="talentObject in talentObjects" :key="talentObject.id">
+                                    <div v-if="talentObject.profile_id == profileObject.id">
                                         <div v-for="instrumentObject in instrumentObjects" :key="instrumentObject.id">
-                                            <div v-if="talentTableObject.instrument_id == instrumentObject.id">
+                                            <div v-if="talentObject.instrument_id == instrumentObject.id">
                                         <div>{{ instrumentObject.type }}</div></div></div></div></div>
                                         </div>
                                 <div class="col">{{ profileObject.age }}</div>
@@ -68,21 +68,23 @@
         }
     },
     methods: {
+        // CREATE PROFILE OBJECTS
         allProfiles() {
             axios.get('/allProfiles')
-                    .then(response => {
-                        console.log("ALLPROFILES");
-                        this.profileObjects = response.data;
-                        // for (let i in this.profiles) {
-                        //         this.profileObjects.push(this.profiles[i]);
-                        //             }
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
+                .then(response => {
+                    console.log("ALLPROFILES");
+                    this.profileObjects = response.data;
+                    // for (let i in this.profiles) {
+                    //         this.profileObjects.push(this.profiles[i]);
+                    //             }
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         },
 
-        displaySearchInstruments() {
+        // CREATE TALENT OBJECTS
+        createTalentObjects() {
             this.talentObjects = [];
             axios.get('/getTalents')
                     .then(response => {
@@ -93,7 +95,8 @@
                     });
         },
 
-        getInstrumentObjects() {
+        // CREATE INSTRUMENT OBJECTS
+        createInstrumentObjects() {
             this.instrumentObjects = [];
             axios.get('/getInstruments')
                     .then(response => {
@@ -104,11 +107,12 @@
                     });
         },
 
-        displayMusicians() {
+        // CREATE TALENT OBJECTS, LOOP THROUGH AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
+        createMusicianObjects() {
             this.filter = "All";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/uniqueTalents')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -118,11 +122,11 @@
                     });
         },
 
-        displayVocalists() {
+        createVocalistObjects() {
             this.filter = "Vocalists";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/vocalists')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -132,11 +136,11 @@
                     });
         },
 
-        displayGuitarists() {
+        createGuitaristObjects() {
             this.filter = "Guitarists";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/guitarists')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -146,11 +150,11 @@
                     });
         },
 
-        displayBassists() {
+        createBassistObjects() {
             this.filter = "Bassists";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/bassists')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -160,11 +164,11 @@
                     });
         },
 
-        displayDrummers() {
+        createDrummerObjects() {
             this.filter = "Drummers";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/drummers')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -174,11 +178,11 @@
                     });
         },
 
-        displayKeyboardists() {
+        createKeyboardistObjects() {
             this.filter = "Keyboardists";
             this.musicianObjects = [];
             this.musicians = [];
-            this.displaySearchInstruments();
+            this.createTalentObjects();
             axios.get('/keyboardists')
                     .then(response => {
                         this.musicianObjects = response.data;
@@ -200,8 +204,8 @@
     mounted() {
 
         this.allProfiles();
-        this.displayMusicians();
-        this.getInstrumentObjects();
+        this.createMusicianObjects();
+        this.createInstrumentObjects();
         
     },
 

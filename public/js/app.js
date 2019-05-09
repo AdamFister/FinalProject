@@ -1941,6 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // CREATE PROFILE OBJECTS
     allProfiles: function allProfiles() {
       var _this = this;
 
@@ -1953,7 +1954,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    displaySearchInstruments: function displaySearchInstruments() {
+    // CREATE TALENT OBJECTS
+    createTalentObjects: function createTalentObjects() {
       var _this2 = this;
 
       this.talentObjects = [];
@@ -1963,7 +1965,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    getInstrumentObjects: function getInstrumentObjects() {
+    // CREATE INSTRUMENT OBJECTS
+    createInstrumentObjects: function createInstrumentObjects() {
       var _this3 = this;
 
       this.instrumentObjects = [];
@@ -1973,78 +1976,79 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    displayMusicians: function displayMusicians() {
+    // CREATE TALENT OBJECTS, LOOP THROUGH AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
+    createMusicianObjects: function createMusicianObjects() {
       var _this4 = this;
 
       this.filter = "All";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/uniqueTalents').then(function (response) {
         _this4.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    displayVocalists: function displayVocalists() {
+    createVocalistObjects: function createVocalistObjects() {
       var _this5 = this;
 
       this.filter = "Vocalists";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/vocalists').then(function (response) {
         _this5.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    displayGuitarists: function displayGuitarists() {
+    createGuitaristObjects: function createGuitaristObjects() {
       var _this6 = this;
 
       this.filter = "Guitarists";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/guitarists').then(function (response) {
         _this6.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    displayBassists: function displayBassists() {
+    createBassistObjects: function createBassistObjects() {
       var _this7 = this;
 
       this.filter = "Bassists";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/bassists').then(function (response) {
         _this7.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    displayDrummers: function displayDrummers() {
+    createDrummerObjects: function createDrummerObjects() {
       var _this8 = this;
 
       this.filter = "Drummers";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/drummers').then(function (response) {
         _this8.musicianObjects = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    displayKeyboardists: function displayKeyboardists() {
+    createKeyboardistObjects: function createKeyboardistObjects() {
       var _this9 = this;
 
       this.filter = "Keyboardists";
       this.musicianObjects = [];
       this.musicians = [];
-      this.displaySearchInstruments();
+      this.createTalentObjects();
       axios.get('/keyboardists').then(function (response) {
         _this9.musicianObjects = response.data;
       })["catch"](function (error) {
@@ -2054,8 +2058,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.allProfiles();
-    this.displayMusicians();
-    this.getInstrumentObjects();
+    this.createMusicianObjects();
+    this.createInstrumentObjects();
   },
   computed: {}
 });
@@ -37443,7 +37447,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn1" },
           on: {
             click: function($event) {
-              _vm.displayMusicians(), (_vm.activeBtn = "btn1")
+              _vm.createMusicianObjects(), (_vm.activeBtn = "btn1")
             }
           }
         },
@@ -37457,7 +37461,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn2" },
           on: {
             click: function($event) {
-              _vm.displayVocalists(), (_vm.activeBtn = "btn2")
+              _vm.createVocalistObjects(), (_vm.activeBtn = "btn2")
             }
           }
         },
@@ -37471,7 +37475,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn3" },
           on: {
             click: function($event) {
-              _vm.displayGuitarists(), (_vm.activeBtn = "btn3")
+              _vm.createGuitaristObjects(), (_vm.activeBtn = "btn3")
             }
           }
         },
@@ -37485,7 +37489,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn4" },
           on: {
             click: function($event) {
-              _vm.displayBassists(), (_vm.activeBtn = "btn4")
+              _vm.createBassistObjects(), (_vm.activeBtn = "btn4")
             }
           }
         },
@@ -37499,7 +37503,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn5" },
           on: {
             click: function($event) {
-              _vm.displayDrummers(), (_vm.activeBtn = "btn5")
+              _vm.createDrummerObjects(), (_vm.activeBtn = "btn5")
             }
           }
         },
@@ -37513,7 +37517,7 @@ var render = function() {
           class: { active: _vm.activeBtn === "btn6" },
           on: {
             click: function($event) {
-              _vm.displayKeyboardists(), (_vm.activeBtn = "btn6")
+              _vm.createKeyboardistObjects(), (_vm.activeBtn = "btn6")
             }
           }
         },
@@ -37564,9 +37568,9 @@ var render = function() {
                       _c(
                         "div",
                         { staticClass: "col" },
-                        _vm._l(_vm.talentObjects, function(talentTableObject) {
-                          return _c("div", { key: talentTableObject.id }, [
-                            talentTableObject.profile_id == profileObject.id
+                        _vm._l(_vm.talentObjects, function(talentObject) {
+                          return _c("div", { key: talentObject.id }, [
+                            talentObject.profile_id == profileObject.id
                               ? _c(
                                   "div",
                                   _vm._l(_vm.instrumentObjects, function(
@@ -37576,7 +37580,7 @@ var render = function() {
                                       "div",
                                       { key: instrumentObject.id },
                                       [
-                                        talentTableObject.instrument_id ==
+                                        talentObject.instrument_id ==
                                         instrumentObject.id
                                           ? _c("div", [
                                               _c("div", [
