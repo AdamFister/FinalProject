@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Local Jam') }}</title>
+    <title>Local Jam</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
