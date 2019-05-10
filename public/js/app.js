@@ -1976,7 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    // CREATE TALENT OBJECTS, LOOP THROUGH AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
+    // CREATE TALENT OBJECTS, LOOP THROUGH TALENT TABLE AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
     createMusicianObjects: function createMusicianObjects() {
       var _this4 = this;
 

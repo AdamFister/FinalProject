@@ -13,7 +13,7 @@
                     <br>
                     
                     <!-- LOOP THROUGH ALL PROFILE OBJECTS -->
-                        <div v-for="(profileObject) in profileObjects" :key="profileObject.id">
+                        <div v-for="profileObject in profileObjects" :key="profileObject.id">
                             <!-- LOOP THROUGH MUSICIANS FROM CREATED OBJECT ONLY CONTAINING PROFILES MATCHING SPECIFIED VALUES -->
                         <div v-for="musicianObject in musicianObjects" :key="musicianObject.id">
                             <!-- ONLY DISPLAY PROFILES MATCHING SPECIFIED VALUE -->
@@ -107,7 +107,7 @@
                     });
         },
 
-        // CREATE TALENT OBJECTS, LOOP THROUGH AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
+        // CREATE TALENT OBJECTS, LOOP THROUGH TALENT TABLE AND SAVE UNIQUE PROFILE IDS AS MUSICIAN OBJECTS 
         createMusicianObjects() {
             this.filter = "All";
             this.musicianObjects = [];

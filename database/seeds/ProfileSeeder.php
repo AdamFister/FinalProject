@@ -93,7 +93,7 @@ class ProfileSeeder extends Seeder
                 'genre' => 'rock',
                 'city' => 'Lexington, KY',
                 'age' => '37',
-                'desc' => 'Hiya folks! I\'m a multi-instrumentalist who loves to jam with friends. I love writing and arranging music, especially viola parts for my wife Chelsea and I to play together! Come jam with us!',
+                'desc' => 'Hiya folks! I\'m a multi-instrumentalist who loves to jam with friends. My passion is writing and arranging music, especially viola parts for my wife Chelsea and I to play together! Come jam with us!',
                 'influences' => 'The Beatles, Phish, Talking Heads, Steely Dan, Tom Petty, The Band, Grateful Dead, Bela Fleck and the Flecktones, Dave Brubeck Quartet, Elton John, Hall & Oates, Beach Boys, B-52\'s, Simon & Garfunkel, Queen, Jimi Hendrix, Johnny Cash, Buddy Holly',
                 'read_write_music' => '6',
                 'improvise' => '7',
