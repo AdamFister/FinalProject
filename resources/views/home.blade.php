@@ -53,16 +53,16 @@
                                         </div>
                                     </div> -->
 
-                                    <br>
+                                    
                                     <div>
                                         <!-- <label class="label" for="city">City</label> -->
-                                        <h5><p class="link">City:</p></h5>
+                                        <h5 class="link">City:</h5>
                                             <p>{{ $profile->city }}</p>
                                     </div>
-                                    
+                                    <hr>
                                     <!-- Instruments: -->
-                                    <br>
-                                    <h5><p class="link">Talents:</p></h5>
+                                    
+                                    <h5 class="link">Talents:</h5>
                                     <?php foreach ($talents as $talent) {
                                         foreach ($instruments as $instrument)
                                             if ($talent->profile_id == $profile->id) {
@@ -72,67 +72,62 @@
                                                 }
                                             }
                                     } ?>
-                                    <br>
-                                    <br>
+                                    
+                                    <hr>
                                     <!-- <div class="field">
                                         <label class="label" for="age">Age</label> -->
 
                                         <div>
-                                        <h5><p class="link">Age:</p></h5>
+                                        <h5 class="link">Age:</h5>
                                             <p> {{ $profile->age }} </p>
                                         </div>
                                     <!-- </div> -->
-                                    <br>
+                                    <hr>
                                     <!-- <div class="field"> -->
                                         <!-- <label class="label" for="genre">Music</label> -->
-
+                                        
                                         <div>
-                                        <h5><p class="link">My musical styles:</p></h5>
+                                        <h5 class="link">My musical styles:</h5>
                                             <p> {{ $profile->genre }} </p>
                                         </div>
                                     <!-- </div> -->
-                                    <br>
-                                    <br>
-                                    <div class="field">
-                                    <h5><label class="label link" for="read_write_music">Read/Write Music</label></h5>
-
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="read_write_music" placeholder="1 to 10" value="{{ $profile->read_write_music }}">
-                                        </div>
+                                    <hr>
+                                    
+                                    <div>
+                                    <h5 class="link">Read/Write Music</h5>
+                                    <p>{{ $profile->read_write_music }}</p>
                                     </div>
-                                    <br>
-                                    <div class="field">
-                                    <h5><label class="label link" for="improvise">Improvise</label></h5>
 
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="improvise" placeholder="1 to 10" value="{{ $profile->improvise }}">
-                                        </div>
+                                    <hr>
+
+                                    <div>
+                                    <h5 class="link">Improvise</h5>
+                                    <p>{{ $profile->improvise }}</p>
                                     </div>
-                                    <br>
-                                    <div class="field">
-                                    <h5><label class="label link" for="ear">Ear</label></h5>
 
-                                        <div class="control">
-                                            <input readonly class="form-control-plaintext" type="text" class="input" name="ear" placeholder="1 to 10" value="{{ $profile->ear }}">
-                                        </div>
+                                    <hr>
+                                    <div>
+                                    <h5 class="link">Ear</h5>
+                                    <p>{{ $profile->ear }}</p>
                                     </div>
 
                                 </div>
                                 <div class="col">
                                         <div>
-                                            <br>
+                                            
                                             <img class="profileImg" src="/files/{{ $profile->photo }}" />
                                         </div>
-                                    <br>
+                                        
                                         <div>
-                                        <h5 class="link"><p>About Me:</p></h5>
+                                            <br>
+                                        <h5 class="link">About Me:</h5>
                                             <p>{{ $profile->desc }}</p>
                                         </div>
-                                    <br>
+                                        <hr>
                                     <div class="field">
                                         <!-- <label class="label" for="influences">Influences</label> -->
                                         <div>
-                                        <h5 class="link"><p>Musical Influences:</p></h5>
+                                        <h5 class="link">Musical Influences:</h5>
                                             <p>{{ $profile->influences }}</p>
                                         </div>
                                     </div>

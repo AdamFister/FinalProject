@@ -12,7 +12,8 @@
     max-width: 80%;
     min-width: 25px;
     height: auto;
-    padding-top: 5%;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .left {
@@ -61,6 +62,8 @@
 .btn-purple {
   background-color: purple;
   color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .btn-purple:hover {
@@ -140,3 +143,11 @@
 .col {
     border: 1px solid blue;
   } */
+
+  .col {
+    margin-top: 5px;
+  }
+
+  .col-sm-2 {
+    margin-top: 5px;
+  }

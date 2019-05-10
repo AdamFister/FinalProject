@@ -34,7 +34,7 @@
                 @guest
 
                 @else
-                <a class="navbar-brand" href="/login">
+                <a class="navbar-brand" href="/search">
                 <img class="logomin" src="/files/images/LocalJam.png">
                 </a>
 
@@ -43,7 +43,7 @@
                 </a>
                 
                 <a class="navbar-brand" href="/search">
-                    Search
+                    Filter by Instrument
                 </a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
